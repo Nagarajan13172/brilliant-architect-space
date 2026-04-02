@@ -5,7 +5,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.domain=youngstorage.in
-      - traefik.http.routers.sathish-portfolio.rule=Host(`sathish.cloud`)
+      - traefik.http.routers.sathish-portfolio.rule=Host(`sathishkumar.cloud`)
       - traefik.http.routers.sathish-portfolio.entrypoints=websecure
       - traefik.http.routers.sathish-portfolio.tls=true
       - traefik.http.routers.sathish-portfolio.tls.certresolver=myresolver

@@ -3,7 +3,7 @@ pipeline {
 
   environment {
     DOCKER_IMAGE    = 'sathish-portfolio'
-    DOCKER_REGISTRY = 'ghcr.io/Nagarajan13172'
+    DOCKER_REGISTRY = 'ghcr.io/nagarajan13172'
   }
 
   stages {
@@ -34,15 +34,6 @@ pipeline {
           sh """
             docker compose up -d
           """
-        }
-      }
-    }
-
-    stage('Push Image') {
-      steps {
-        script {
-          def tag = params.ENV_TARGET
-          sh "docker push $DOCKER_REGISTRY/$DOCKER_IMAGE:latest"
         }
       }
     }
