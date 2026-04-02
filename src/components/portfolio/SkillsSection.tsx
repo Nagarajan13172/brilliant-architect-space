@@ -1,9 +1,22 @@
 import { motion } from "framer-motion";
+import { Layers, Database, Laptop, ShieldCheck, Users } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import SectionHeading from "./SectionHeading";
+
+type SkillCategory = {
+  title: string;
+  summary: string;
+  icon: LucideIcon;
+  accent: string;
+  skills: string[];
+};
 
 const skillCategories = [
   {
     title: "Full-Stack Development",
+    summary: "Builds scalable frontend and full-stack applications with modern TypeScript-first workflows.",
+    icon: Layers,
+    accent: "from-primary/20 to-primary/5 border-primary/30",
     skills: [
       "JavaScript (ES6+)",
       "TypeScript",
@@ -14,6 +27,9 @@ const skillCategories = [
   },
   {
     title: "State & Data Management",
+    summary: "Designs predictable data flows and analytics-ready dashboards for enterprise-grade products.",
+    icon: Database,
+    accent: "from-cyan-500/20 to-cyan-500/5 border-cyan-500/30",
     skills: [
       "MongoDB (Indexing & Pipelines)",
       "TanStack Query",
@@ -24,6 +40,9 @@ const skillCategories = [
   },
   {
     title: "Hybrid & Specialized Tools",
+    summary: "Delivers desktop, mobile, and automation-enabled solutions across varied runtime environments.",
+    icon: Laptop,
+    accent: "from-violet-500/20 to-violet-500/5 border-violet-500/30",
     skills: [
       "Electron (Desktop Apps)",
       "Ionic (iOS/Android)",
@@ -34,6 +53,9 @@ const skillCategories = [
   },
   {
     title: "Enterprise & Architecture",
+    summary: "Architects secure, reusable, and multi-tenant platforms for long-term product scalability.",
+    icon: ShieldCheck,
+    accent: "from-emerald-500/20 to-emerald-500/5 border-emerald-500/30",
     skills: [
       "White-label Branding Engines",
       "RBAC & Security",
@@ -44,6 +66,9 @@ const skillCategories = [
   },
   {
     title: "Leadership & Process",
+    summary: "Leads technical discovery, team execution, and quality outcomes through structured delivery.",
+    icon: Users,
+    accent: "from-amber-500/20 to-amber-500/5 border-amber-500/30",
     skills: [
       "Technical Discovery & Solution Design",
       "Cross-functional Team Leadership",
@@ -52,13 +77,54 @@ const skillCategories = [
       "Quality Engineering & Test Strategy",
     ],
   },
-];
+] satisfies SkillCategory[];
 
 const SkillsSection = () => (
   <section id="skills" className="section-padding bg-secondary/30 relative overflow-hidden">
     <SectionHeading title="Skills & Expertise" subtitle="Technologies and tools I work with daily" />
 
-    <div className="container mx-auto grid gap-6 md:grid-cols-2 md:gap-8">
+    <div className="container mx-auto space-y-6 md:space-y-8">
+      <motion.div
+        initial={{ opacity: 0, y: 22 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.55 }}
+        className="glass hover-card-glow rounded-2xl border border-border/60 p-5 sm:p-6"
+      >
+        <div className="grid gap-5 md:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] md:items-center">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              Core Capability Stack
+            </p>
+            <h3 className="mt-2 font-display text-2xl font-bold text-foreground sm:text-3xl">
+              Enterprise Frontend Platforms & Delivery Leadership
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+              Hands-on across architecture, implementation, and release strategy for multi-tenant applications, analytics dashboards, and high-quality engineering delivery.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-2">
+            {[
+              "Angular",
+              "React",
+              "TypeScript",
+              "Node.js",
+              "Highcharts",
+              "WDIO",
+            ].map((item) => (
+              <span
+                key={item}
+                className="rounded-xl border border-border bg-muted/55 px-3 py-2 text-center text-xs font-semibold text-foreground sm:text-sm"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
+      <div className="grid gap-6 md:grid-cols-2 md:gap-8">
       {skillCategories.map((cat, catIdx) => (
         <motion.div
           key={cat.title}
@@ -66,9 +132,18 @@ const SkillsSection = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: catIdx * 0.1, duration: 0.5 }}
-          className="glass hover-card-glow rounded-2xl p-5 sm:p-6"
+          className={`glass hover-card-glow rounded-2xl border border-border/60 p-5 sm:p-6 ${cat.title === "Leadership & Process" ? "md:col-span-2" : ""}`}
         >
-          <h3 className="mb-6 font-display text-lg font-bold text-foreground sm:text-xl">{cat.title}</h3>
+          <div className="mb-4 flex items-start justify-between gap-4">
+            <div>
+              <h3 className="font-display text-lg font-bold text-foreground sm:text-xl">{cat.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{cat.summary}</p>
+            </div>
+            <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border bg-gradient-to-br ${cat.accent}`}>
+              <cat.icon size={18} className="text-foreground" />
+            </div>
+          </div>
+
           <div className="flex flex-wrap gap-2.5">
             {cat.skills.map((skill, i) => (
               <motion.span
@@ -77,7 +152,7 @@ const SkillsSection = () => (
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: 0.03 * i }}
-                className="rounded-xl border border-border bg-muted/60 px-3 py-2 text-xs font-medium text-foreground sm:text-sm"
+                className="rounded-xl border border-border/80 bg-muted/55 px-3 py-2 text-xs font-medium text-foreground sm:text-sm"
               >
                 {skill}
               </motion.span>
@@ -85,6 +160,7 @@ const SkillsSection = () => (
           </div>
         </motion.div>
       ))}
+      </div>
     </div>
   </section>
 );
