@@ -38,18 +38,6 @@ pipeline {
       }
     }
 
-    stage('Login to Registry') {
-      steps {
-        withCredentials([usernamePassword(
-          credentialsId:   'GITHUB_SECRET',
-          usernameVariable: 'USERNAME',
-          passwordVariable: 'PASSWORD'
-        )]) {
-          sh 'echo $PASSWORD | docker login $DOCKER_REGISTRY -u $USERNAME --password-stdin'
-        }
-      }
-    }
-
     stage('Push Image') {
       steps {
         script {
