@@ -3,21 +3,23 @@ import { Trophy, Mic, BookOpen, Award, Users, Globe } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 
 const achievements = [
-  { icon: Trophy, title: "ETL Automation Excellence", desc: "Reduced ETL development effort by ~90% (2 days → 30 minutes) through intelligent automation", color: "text-yellow-500" },
-  { icon: Mic, title: "CEO/CPO/CRO Recognition", desc: "Awarded for developing ATT Disconnect utility earning executive recognition for cost savings", color: "text-blue-500" },
-  { icon: BookOpen, title: "Device Automation Pioneer", desc: "Developed first Device Automation Bot to bypass hidden captchas successfully", color: "text-green-500" },
-  { icon: Award, title: "41+ Component Library", desc: "Architected centralized component library (41+ reusable components) adopted across enterprise applications", color: "text-purple-500" },
-  { icon: Users, title: "Multi-Tenant Architecture", desc: "Designed white-label branding engine supporting 28+ global partners with dynamic SCSS customization", color: "text-orange-500" },
-  { icon: Globe, title: "Technical Innovation", desc: "Implemented server-based solution resolving Comcast bot blocking issues for seamless operation", color: "text-cyan-500" },
+  { icon: Trophy, title: "Optimized Development Workflows", desc: "Advanced AI-assisted coding techniques for rapid prototyping and accelerated development", color: "text-yellow-500" },
+  { icon: Mic, title: "Technical Discovery & Alignment", desc: "Spearheaded technical discovery and aligned global project stakeholders with strategic vision", color: "text-blue-500" },
+  { icon: BookOpen, title: "Angular Migration Success", desc: "Migrated enterprise systems from Angular 11 to Angular 21 with zero downtime", color: "text-green-500" },
+  { icon: Award, title: "ETL Automation Excellence", desc: "Reduced ETL effort by 90% via automated workflows, improving developer productivity", color: "text-purple-500" },
+  { icon: Users, title: "Multi-Tenant Leadership", desc: "Led cross-functional teams to deliver multi-tenant mono-repos for enterprise scale", color: "text-orange-500" },
+  { icon: Globe, title: "White-Label Innovation", desc: "Engineered white-label engine for 28+ global partners with dynamic customization", color: "text-cyan-500" },
 ];
 
 const certifications = [
-  "Multi-Tenant Architecture Design",
-  "Enterprise Component Library Development",
-  "Advanced Data Visualization & Kibana",
+  "Technical Project Leadership",
+  "Stakeholder & Client Management",
+  "Architectural Discovery & Design",
+  "Cross-functional Team Management",
+  "Agile & SDLC Management",
+  "Enterprise Architecture Expertise",
   "Automation Testing (WDIO & Cucumber)",
-  "Full-Stack MERN/MEAN Development",
-  "Cloud Infrastructure & DevOps",
+  "DevOps & Cloud Infrastructure",
 ];
 
 const AchievementsSection = () => (

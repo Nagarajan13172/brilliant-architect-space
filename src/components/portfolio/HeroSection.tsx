@@ -137,7 +137,7 @@ const HeroSection = () => {
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -right-4 top-10 glass px-4 py-2 rounded-xl text-sm font-semibold"
               >
-                🚀 10+ Years Exp
+                🚀 8+ Years Exp
               </motion.div>
               <motion.div
                 animate={{ y: [5, -5, 5] }}

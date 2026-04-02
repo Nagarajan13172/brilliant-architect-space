@@ -9,36 +9,27 @@ const experiences = [
     location: "Bengaluru",
     period: "Jan 2024 – Present",
     highlights: [
-      "Spearheaded OtoSense® SMS Platform with end-to-end project leadership and primary technical point of contact",
-      "Architected multi-tenant Angular monorepo (Angular 11-21) supporting 3 enterprise applications with 41+ reusable components",
-      "Engineered high-performance dashboards using Highcharts and ag-Grid for real-time motor health tracking",
+      "Spearheaded OtoSense® SMS Platform - end-to-end project leadership serving as primary technical contact for complex business logic and edge-case scenarios",
+      "Architected multi-tenant Angular monorepo (Angular 11-21) supporting 3 enterprise applications with shared library of 41+ reusable components",
+      "Engineered high-performance dashboards using Highcharts and ag-Grid for real-time motor health tracking and time-series visualization",
       "Developed white-label branding engine with dynamic SCSS enabling 28+ global partners to customize UI through single codebase",
+      "Designed centralized ReactJS suite (DataTable, Data Visualizer, Tree Viewer, DAG Builder) using Tanstack-query and Material React Tables",
+      "Led front-end development for Web GUI providing live-streamed metrics via line graphs and pie charts",
+      "Architected automation framework using WDIO, Cucumber, and JavaScript to stabilize web and cloud orchestration platforms",
     ],
   },
   {
-    role: "Software Engineer",
+    role: "Senior Software Engineer",
     company: "Ace Turtle (August Purple)",
     location: "Bengaluru",
     period: "Feb 2018 – Feb 2021",
     highlights: [
-      "Developed component-based applications for Rubicon Omni-Channel Platform (OMS, IMS, CMS)",
-      "Engineered online merchandise portals for global brands (PUMA, RayBan, Aldo) with theme customization",
-      "Implemented XML layouts ensuring responsive design across all device types",
-      "Built enterprise-grade component library supporting multiple product lines",
+      "Developed component-based applications for Rubicon Omni-Channel Platform (OMS, IMS, CMS) serving enterprise clients",
+      "Engineered online merchandise portals for global brands (PUMA, RayBan, Superdry, NomadX, Aldo) with theme customization and XML layouts",
+      "Implemented responsive design ensuring seamless experience across all device types",
+      "Built enterprise-grade component library supporting multiple product lines and teams",
     ],
   },
-  // {
-  //   role: "Senior Software Engineer",
-  //   company: "Tangoe",
-  //   location: "Bengaluru",
-  //   period: "2015 – 2018",
-  //   highlights: [
-  //     "Led bot development and RPA integration for FIDO project ensuring seamless functionality",
-  //     "Architected RPAM project with Pentaho Data Integration (ETL) automation",
-  //     "Developed automated reporting systems delivering critical data for strategic decision-making",
-  //     "Resolved production issues proactively, minimizing downtime and ensuring smooth operations",
-  //   ],
-  // },
 ];
 
 const ExperienceSection = () => (

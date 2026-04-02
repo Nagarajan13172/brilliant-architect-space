@@ -32,7 +32,7 @@ const AboutSection = () => {
 
   return (
     <section id="about" ref={sectionRef} className="section-padding relative">
-      <SectionHeading title="About Me" subtitle="Passionate about building the future of the web" />
+      <SectionHeading title="About Me" subtitle="Accomplished Technical Lead & Full-Stack Engineer" />
 
       <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-start">
         <motion.div
@@ -42,18 +42,13 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-            I'm a <span className="text-foreground font-semibold">Technical Lead and Full-Stack Engineer</span> with 9+ years of experience
-            delivering scalable technology solutions across Telecom, E-commerce, and IoT domains. I specialize in architecting
-            multi-tenant applications, building enterprise-grade component libraries, and leading cross-functional teams.
+            Accomplished Technical Lead and Full-Stack Engineer with 9+ years of experience delivering scalable, technology-driven solutions across Telecom, E-commerce, and IoT domains. Expertise in MERN and MEAN stacks, with a proven track record of architecting multi-tenant mono-repos and reusable component libraries (41+ components) that streamline development for complex enterprise applications.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-            My expertise spans MERN/MEAN stacks, high-performance data visualization, automation testing, and hybrid development.
-            I've architected 41+ reusable components for enterprise applications serving global partners like Analog Devices,
-            and implemented white-label branding engines used by 28+ organizations.
+            Versatile Hybrid Developer proficient in building cross-platform desktop applications (Windows, Linux, Mac) using Electron and high-performance mobile applications (iOS, Android) via Ionic. Specialized in high-performance data visualization, utilizing Highcharts, ag-Grid, and Kibana to build real-time monitoring dashboards and time-series tracking systems.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            I'm passionate about building resilient architectures, mentoring engineering teams, and leveraging AI tools to accelerate development.
-            My work combines technical excellence with strategic thinking to deliver transformative business solutions.
+            Proven Leadership in managing cross-functional teams, serving as the primary technical point of contact for global clients such as Analog Devices, and orchestrating end-to-end technical discovery. Strong background in Automation Testing with robust frameworks using WDIO, Cucumber, and JavaScript.
           </p>
         </motion.div>
 

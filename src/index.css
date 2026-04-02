@@ -144,9 +144,36 @@
     @apply border-border;
   }
 
+  html {
+    @apply bg-background;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
     font-family: var(--font-body);
+    position: relative;
+  }
+
+  /* Grid background overlay - light mode only */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      linear-gradient(rgba(148, 163, 184, 0.35) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.35) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-attachment: fixed;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .dark body::before {
+    display: none;
   }
 
   h1, h2, h3, h4, h5, h6 {
