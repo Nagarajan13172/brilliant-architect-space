@@ -3,7 +3,7 @@ pipeline {
 
   environment {
     DOCKER_IMAGE    = 'sathish-portfolio'
-    DOCKER_REGISTRY = 'ghcr.io/Nagarajan13172'
+    DOCKER_REGISTRY = 'ghcr.io/nagarajan13172'
   }
 
   stages {
