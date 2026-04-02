@@ -3,51 +3,51 @@ import SectionHeading from "./SectionHeading";
 
 const skillCategories = [
   {
-    title: "Frontend Core",
+    title: "Full-Stack Development",
     skills: [
-      { name: "React / Next.js", level: 98 },
-      { name: "TypeScript", level: 96 },
       { name: "JavaScript (ES6+)", level: 98 },
-      { name: "HTML5 / CSS3", level: 97 },
-      { name: "Vue.js", level: 80 },
+      { name: "TypeScript", level: 96 },
+      { name: "Angular (11-21)", level: 95 },
+      { name: "ReactJS", level: 97 },
+      { name: "Node.js", level: 92 },
     ],
   },
   {
-    title: "Styling & UI",
+    title: "State & Data Management",
     skills: [
-      { name: "Tailwind CSS", level: 95 },
-      { name: "SCSS / SASS", level: 90 },
-      { name: "Styled Components", level: 88 },
-      { name: "Framer Motion", level: 85 },
-      { name: "Material UI / Ant Design", level: 90 },
+      { name: "MongoDB (Indexing & Pipelines)", level: 94 },
+      { name: "Tanstack Query", level: 95 },
+      { name: "NGXS & RxJS", level: 92 },
+      { name: "Highcharts & ag-Grid", level: 93 },
+      { name: "Material React Tables", level: 90 },
     ],
   },
   {
-    title: "State & Architecture",
+    title: "Hybrid & Specialized Tools",
     skills: [
-      { name: "Redux / Zustand", level: 95 },
-      { name: "React Query", level: 92 },
-      { name: "GraphQL / Apollo", level: 88 },
-      { name: "Micro-Frontends", level: 85 },
-      { name: "Design Systems", level: 93 },
+      { name: "Electron (Desktop Apps)", level: 92 },
+      { name: "Ionic (iOS/Android)", level: 88 },
+      { name: "WDIO & Cucumber Testing", level: 90 },
+      { name: "Docker & DevOps", level: 85 },
+      { name: "Multi-tenant Mono-repos", level: 93 },
     ],
   },
   {
-    title: "DevOps & Tools",
+    title: "Enterprise & Architecture",
     skills: [
-      { name: "Git / GitHub", level: 96 },
-      { name: "CI/CD Pipelines", level: 88 },
-      { name: "Docker / K8s", level: 78 },
-      { name: "Webpack / Vite", level: 92 },
-      { name: "Jest / Cypress / Playwright", level: 90 },
+      { name: "White-label Branding Engines", level: 94 },
+      { name: "RBAC & Security", level: 91 },
+      { name: "Component Libraries (41+)", level: 96 },
+      { name: "Real-time Data Visualization", level: 94 },
+      { name: "Micro-Frontend Architecture", level: 92 },
     ],
   },
 ];
 
 const techLogos = [
-  "React", "TypeScript", "JavaScript", "Node.js", "GraphQL",
-  "Docker", "AWS", "Git", "Redux", "Next.js",
-  "Tailwind", "Figma", "Storybook", "Jest", "Webpack",
+  "Angular", "React", "TypeScript", "JavaScript", "Node.js",
+  "MongoDB", "Electron", "Ionic", "Highcharts", "ag-Grid",
+  "Docker", "WDIO", "Cucumber", "Tanstack Query", "SCSS",
 ];
 
 const SkillsSection = () => (

@@ -8,10 +8,10 @@ import SectionHeading from "./SectionHeading";
 gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
-  { icon: Code2, value: "50+", label: "Projects Delivered" },
-  { icon: Users, value: "20+", label: "Team Members Led" },
-  { icon: Rocket, value: "10+", label: "Years Experience" },
-  { icon: Award, value: "15+", label: "Awards & Certs" },
+  { icon: Code2, value: "41+", label: "Reusable Components" },
+  { icon: Users, value: "28+", label: "Global Partners" },
+  { icon: Rocket, value: "9+", label: "Years Experience" },
+  { icon: Award, value: "Multi-Tenant", label: "Architecture" },
 ];
 
 const AboutSection = () => {
@@ -42,18 +42,18 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-            I'm a <span className="text-foreground font-semibold">Senior Frontend Technical Lead</span> with over a decade
-            of experience architecting and building modern web applications. I specialize in React ecosystem,
-            TypeScript, and leading cross-functional engineering teams.
+            I'm a <span className="text-foreground font-semibold">Technical Lead and Full-Stack Engineer</span> with 9+ years of experience
+            delivering scalable technology solutions across Telecom, E-commerce, and IoT domains. I specialize in architecting
+            multi-tenant applications, building enterprise-grade component libraries, and leading cross-functional teams.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-            My passion lies in creating pixel-perfect, accessible, and performant user interfaces while mentoring
-            developers and establishing engineering best practices. I've successfully led teams of 20+ engineers
-            and delivered enterprise-scale applications for Fortune 500 companies.
+            My expertise spans MERN/MEAN stacks, high-performance data visualization, automation testing, and hybrid development.
+            I've architected 41+ reusable components for enterprise applications serving global partners like Analog Devices,
+            and implemented white-label branding engines used by 28+ organizations.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Beyond coding, I contribute to open-source projects, speak at tech conferences, and write about
-            modern frontend architecture. I believe in continuous learning and pushing the boundaries of web technology.
+            I'm passionate about building resilient architectures, mentoring engineering teams, and leveraging AI tools to accelerate development.
+            My work combines technical excellence with strategic thinking to deliver transformative business solutions.
           </p>
         </motion.div>
 

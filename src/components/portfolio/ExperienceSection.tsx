@@ -4,52 +4,41 @@ import SectionHeading from "./SectionHeading";
 
 const experiences = [
   {
-    role: "Senior Frontend Technical Lead",
-    company: "TechCorp Global",
-    location: "San Francisco, CA",
-    period: "2021 – Present",
+    role: "Technical Lead Engineer",
+    company: "Alethea (Client: Analog Devices India)",
+    location: "Bengaluru",
+    period: "Jan 2024 – Present",
     highlights: [
-      "Led a team of 15+ frontend engineers building enterprise SaaS platform",
-      "Architected micro-frontend strategy reducing deployment time by 60%",
-      "Established design system adopted across 8 product teams",
-      "Improved Core Web Vitals scores by 40% across all products",
+      "Spearheaded OtoSense® SMS Platform with end-to-end project leadership and primary technical point of contact",
+      "Architected multi-tenant Angular monorepo (Angular 11-21) supporting 3 enterprise applications with 41+ reusable components",
+      "Engineered high-performance dashboards using Highcharts and ag-Grid for real-time motor health tracking",
+      "Developed white-label branding engine with dynamic SCSS enabling 28+ global partners to customize UI through single codebase",
     ],
   },
   {
-    role: "Lead Frontend Engineer",
-    company: "InnovateTech Inc.",
-    location: "New York, NY",
-    period: "2018 – 2021",
+    role: "Software Engineer",
+    company: "Ace Turtle (August Purple)",
+    location: "Bengaluru",
+    period: "Feb 2018 – Feb 2021",
     highlights: [
-      "Spearheaded migration from Angular to React serving 2M+ users",
-      "Implemented real-time collaboration features using WebSockets",
-      "Mentored 10+ junior and mid-level developers",
-      "Reduced bundle size by 45% through code-splitting strategies",
+      "Developed component-based applications for Rubicon Omni-Channel Platform (OMS, IMS, CMS)",
+      "Engineered online merchandise portals for global brands (PUMA, RayBan, Aldo) with theme customization",
+      "Implemented XML layouts ensuring responsive design across all device types",
+      "Built enterprise-grade component library supporting multiple product lines",
     ],
   },
-  {
-    role: "Senior Frontend Developer",
-    company: "Digital Solutions Ltd.",
-    location: "Austin, TX",
-    period: "2015 – 2018",
-    highlights: [
-      "Built responsive e-commerce platform generating $50M+ annually",
-      "Developed reusable component library used across 5 projects",
-      "Introduced automated testing achieving 90% code coverage",
-      "Led accessibility audit ensuring WCAG 2.1 AA compliance",
-    ],
-  },
-  {
-    role: "Frontend Developer",
-    company: "StartupHub",
-    location: "Remote",
-    period: "2013 – 2015",
-    highlights: [
-      "Developed interactive dashboards for data analytics platform",
-      "Implemented responsive designs for 15+ client websites",
-      "Collaborated with UX team to improve user engagement by 35%",
-    ],
-  },
+  // {
+  //   role: "Senior Software Engineer",
+  //   company: "Tangoe",
+  //   location: "Bengaluru",
+  //   period: "2015 – 2018",
+  //   highlights: [
+  //     "Led bot development and RPA integration for FIDO project ensuring seamless functionality",
+  //     "Architected RPAM project with Pentaho Data Integration (ETL) automation",
+  //     "Developed automated reporting systems delivering critical data for strategic decision-making",
+  //     "Resolved production issues proactively, minimizing downtime and ensuring smooth operations",
+  //   ],
+  // },
 ];
 
 const ExperienceSection = () => (

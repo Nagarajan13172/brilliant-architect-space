@@ -3,21 +3,21 @@ import { Trophy, Mic, BookOpen, Award, Users, Globe } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 
 const achievements = [
-  { icon: Trophy, title: "Google Developer Expert", desc: "Recognized as GDE for Web Technologies, 2022", color: "text-yellow-500" },
-  { icon: Mic, title: "Conference Speaker", desc: "Spoke at React Conf, JSConf, and 20+ tech events globally", color: "text-blue-500" },
-  { icon: BookOpen, title: "Published Author", desc: "Author of 'Modern Frontend Architecture' with 15k+ copies sold", color: "text-green-500" },
-  { icon: Award, title: "Open Source Contributor", desc: "Top 1% contributor on GitHub with 10k+ stars across projects", color: "text-purple-500" },
-  { icon: Users, title: "Community Leader", desc: "Founded local React meetup with 3,000+ active members", color: "text-orange-500" },
-  { icon: Globe, title: "Patent Holder", desc: "Holds 2 patents on web performance optimization techniques", color: "text-cyan-500" },
+  { icon: Trophy, title: "ETL Automation Excellence", desc: "Reduced ETL development effort by ~90% (2 days → 30 minutes) through intelligent automation", color: "text-yellow-500" },
+  { icon: Mic, title: "CEO/CPO/CRO Recognition", desc: "Awarded for developing ATT Disconnect utility earning executive recognition for cost savings", color: "text-blue-500" },
+  { icon: BookOpen, title: "Device Automation Pioneer", desc: "Developed first Device Automation Bot to bypass hidden captchas successfully", color: "text-green-500" },
+  { icon: Award, title: "41+ Component Library", desc: "Architected centralized component library (41+ reusable components) adopted across enterprise applications", color: "text-purple-500" },
+  { icon: Users, title: "Multi-Tenant Architecture", desc: "Designed white-label branding engine supporting 28+ global partners with dynamic SCSS customization", color: "text-orange-500" },
+  { icon: Globe, title: "Technical Innovation", desc: "Implemented server-based solution resolving Comcast bot blocking issues for seamless operation", color: "text-cyan-500" },
 ];
 
 const certifications = [
-  "AWS Certified Solutions Architect",
-  "Google Cloud Professional",
-  "Meta Frontend Developer Certificate",
-  "Certified Scrum Master (CSM)",
-  "MongoDB Certified Developer",
-  "Kubernetes Application Developer",
+  "Multi-Tenant Architecture Design",
+  "Enterprise Component Library Development",
+  "Advanced Data Visualization & Kibana",
+  "Automation Testing (WDIO & Cucumber)",
+  "Full-Stack MERN/MEAN Development",
+  "Cloud Infrastructure & DevOps",
 ];
 
 const AchievementsSection = () => (

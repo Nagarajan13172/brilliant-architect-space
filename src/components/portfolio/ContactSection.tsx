@@ -20,9 +20,9 @@ const ContactSection = () => (
 
         <div className="space-y-4 mb-8">
           {[
-            { icon: Mail, label: "hello@example.com", href: "mailto:hello@example.com" },
-            { icon: Phone, label: "+1 (555) 123-4567", href: "tel:+15551234567" },
-            { icon: MapPin, label: "San Francisco, CA", href: "#" },
+            { icon: Mail, label: "sathish7845kumar@gmail.com", href: "mailto:sathish7845kumar@gmail.com" },
+            { icon: Phone, label: "+91 9786452324", href: "tel:+919786452324" },
+            { icon: MapPin, label: "Bengaluru, India", href: "#" },
           ].map(({ icon: Icon, label, href }) => (
             <a key={label} href={href} className="flex items-center gap-4 text-muted-foreground hover:text-foreground transition-colors group">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -35,9 +35,8 @@ const ContactSection = () => (
 
         <div className="flex gap-3">
           {[
-            { icon: Github, href: "https://github.com" },
-            { icon: Linkedin, href: "https://linkedin.com" },
-            { icon: Twitter, href: "https://twitter.com" },
+            { icon: Github, href: "https://github.com/gitOfKumarSathish" },
+            { icon: Linkedin, href: "https://linkedin.com/in/sathish7845kumar" },
           ].map(({ icon: Icon, href }) => (
             <motion.a
               key={href}

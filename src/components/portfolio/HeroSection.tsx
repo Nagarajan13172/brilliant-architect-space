@@ -58,7 +58,7 @@ const HeroSection = () => {
             </motion.div>
 
             <AnimatedText
-              text="Senior Frontend Technical Lead"
+              text="Technical Lead & Full-Stack Engineer"
               className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground"
               delay={0.3}
             />
@@ -69,9 +69,9 @@ const HeroSection = () => {
               transition={{ delay: 0.8, duration: 0.6 }}
               className="text-lg text-muted-foreground mt-6 max-w-lg leading-relaxed"
             >
-              Crafting exceptional digital experiences with 10+ years of expertise in
-              React, TypeScript, and modern web architecture. Leading teams to build
-              scalable, performant applications.
+              9+ years of experience in MERN/MEAN stacks, specializing in scalable architecture,
+              enterprise applications, and high-performance data visualization. Leading teams to deliver
+              transformative technology solutions across Telecom, E-commerce, and IoT domains.
             </motion.p>
 
             <motion.div
@@ -97,7 +97,7 @@ const HeroSection = () => {
               {[
                 { icon: Github, href: "https://github.com", label: "GitHub" },
                 { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-                { icon: Mail, href: "mailto:hello@example.com", label: "Email" },
+                { icon: Mail, href: "mailto:sathish7845kumar@gmail.com", label: "Email" },
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}
