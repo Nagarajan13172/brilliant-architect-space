@@ -146,12 +146,24 @@
 
   html {
     @apply bg-background;
+    scroll-behavior: smooth;
+    scroll-padding-top: 92px;
   }
 
   body {
     @apply text-foreground;
     font-family: var(--font-body);
     position: relative;
+  }
+
+  section[id] {
+    scroll-margin-top: 92px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   /* Grid background overlay - light mode only */

@@ -27,7 +27,6 @@ const ContactSection = () => (
         <div className="space-y-4 mb-8">
           {[
             { icon: Mail, label: "sathish7845kumar@gmail.com", href: "mailto:sathish7845kumar@gmail.com" },
-            { icon: Phone, label: "+91 9786452324", href: "tel:+919786452324" },
             { icon: MapPin, label: "Bengaluru, India", href: "#" },
           ].map(({ icon: Icon, label, href }) => (
             <a key={label} href={href} className="group flex items-center justify-center gap-4 text-muted-foreground transition-colors hover:text-foreground lg:justify-start">
