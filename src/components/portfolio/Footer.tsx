@@ -12,7 +12,7 @@ const Footer = () => (
         {"<Dev />"}
       </motion.span>
       <p className="text-sm text-muted-foreground flex items-center gap-1">
-        Built with <Heart size={14} className="text-destructive" /> using React, TypeScript & Framer Motion
+        Built with <Heart size={14} className="text-destructive" /> by Sathish Kumar
       </p>
       <p className="text-sm text-muted-foreground">© 2026 All rights reserved.</p>
     </div>

@@ -24,21 +24,26 @@ type FloatingIcon = {
 const floatingIcons: FloatingIcon[] = [
   {
     label: "React",
-    className: "left-2 top-10 sm:left-4 sm:top-12 lg:left-4 lg:top-14",
+    className: "left-4 top-12 sm:left-6 sm:top-14 lg:left-6 lg:top-16",
     floatY: -12,
     duration: 3.2,
     size: 52,
     bg: "bg-[#20232a]/80",
     border: "border-[#61DAFB]/30",
     svg: (
-      <svg viewBox="0 0 24 24" width="26" height="26" fill="#61DAFB">
-        <path d="M12 10.11A1.87 1.87 0 1 1 10.13 12 1.87 1.87 0 0 1 12 10.11zm-4.91 5.46c-.34-.1-.64-.2-.9-.31a9.13 9.13 0 0 1-1.7-.9 3.54 3.54 0 0 1 0-4.72 9.13 9.13 0 0 1 1.7-.9c.26-.11.56-.21.9-.31a24.18 24.18 0 0 1-.33-1.14 13.55 13.55 0 0 1-.29-2.6C6.47 2.89 8.5 2 12 2s5.53.89 5.53 2.69a13.55 13.55 0 0 1-.29 2.6c-.1.39-.21.77-.33 1.14.34.1.64.2.9.31a9.13 9.13 0 0 1 1.7.9 3.54 3.54 0 0 1 0 4.72 9.13 9.13 0 0 1-1.7.9c-.26.11-.56.21-.9.31.12.37.23.75.33 1.14a13.55 13.55 0 0 1 .29 2.6C17.53 21.11 15.5 22 12 22s-5.53-.89-5.53-2.69a13.55 13.55 0 0 1 .29-2.6c.1-.39.21-.77.33-1.14zm1.38-.38c-.97.27-1.8.59-2.4.95-.79.47-1.14.96-1.14 1.46 0 1.08 1.56 1.9 4.53 1.9s4.53-.82 4.53-1.9c0-.5-.35-.99-1.14-1.46-.6-.36-1.43-.68-2.4-.95a24.26 24.26 0 0 1-1 2.9 24.26 24.26 0 0 1-1-2.9zm2-10.38a24.26 24.26 0 0 1 1-2.9 24.26 24.26 0 0 1 1 2.9c.97-.27 1.8-.59 2.4-.95.79-.47 1.14-.96 1.14-1.46C14.14 3.82 13.07 3 12 3s-2.14.82-2.14 1.9c0 .5.35.99 1.14 1.46.6.36 1.43.68 2.4.95zM8.47 12a24.26 24.26 0 0 1-2.9-1c.27.97.59 1.8.95 2.4.47.79.96 1.14 1.46 1.14h.03c-.27-.97-.46-1.97-.54-3a24.26 24.26 0 0 1-1 2.9zm7.06 0c-.08 1.03-.27 2.03-.54 3h.03c.5 0 .99-.35 1.46-1.14.36-.6.68-1.43.95-2.4a24.26 24.26 0 0 1-2.9 1zm-3.53 4.08a24.26 24.26 0 0 1-1-2.9 24.26 24.26 0 0 1-1 2.9c.33.07.66.11 1 .11s.67-.04 1-.11zm0-8.16c.34.07.67.11 1 .11s.66-.04 1-.11a24.26 24.26 0 0 1-1-2.9 24.26 24.26 0 0 1-1 2.9z"/>
+      <svg viewBox="0 0 24 24" width="26" height="26">
+        <circle cx="12" cy="12" r="2.05" fill="#61DAFB"/>
+        <g fill="none" stroke="#61DAFB" strokeWidth="1.1">
+          <ellipse cx="12" cy="12" rx="10" ry="3.8"/>
+          <ellipse cx="12" cy="12" rx="10" ry="3.8" transform="rotate(60 12 12)"/>
+          <ellipse cx="12" cy="12" rx="10" ry="3.8" transform="rotate(120 12 12)"/>
+        </g>
       </svg>
     ),
   },
   {
     label: "Angular",
-    className: "right-2 top-10 sm:right-4 sm:top-12 lg:right-4 lg:top-14",
+    className: "right-4 top-12 sm:right-6 sm:top-14 lg:right-6 lg:top-16",
     floatY: -14,
     duration: 2.8,
     size: 52,
@@ -54,7 +59,7 @@ const floatingIcons: FloatingIcon[] = [
   },
   {
     label: "TypeScript",
-    className: "left-2 bottom-16 sm:left-5 sm:bottom-20 lg:left-4 lg:bottom-20",
+    className: "left-4 bottom-16 sm:left-6 sm:bottom-20 lg:left-6 lg:bottom-20",
     floatY: -10,
     duration: 3.6,
     size: 48,
@@ -68,7 +73,7 @@ const floatingIcons: FloatingIcon[] = [
   },
   {
     label: "Node.js",
-    className: "right-1 top-1/2 -translate-y-1/2 sm:right-2 lg:right-1",
+    className: "right-2 top-1/2 -translate-y-1/2 sm:right-3 lg:right-2",
     floatY: -8,
     duration: 4,
     size: 48,
@@ -82,7 +87,7 @@ const floatingIcons: FloatingIcon[] = [
   },
   {
     label: "Web",
-    className: "left-0 top-1/2 -translate-y-1/2 sm:left-2 lg:left-1",
+    className: "left-2 top-1/2 -translate-y-1/2 sm:left-3 lg:left-2",
     floatY: -16,
     duration: 3,
     size: 44,
@@ -96,7 +101,7 @@ const floatingIcons: FloatingIcon[] = [
   },
   {
     label: "MongoDB",
-    className: "right-2 bottom-8 sm:right-4 sm:bottom-10 lg:right-1 lg:bottom-8",
+    className: "right-4 bottom-12 sm:right-6 sm:bottom-14 lg:right-6 lg:bottom-14",
     floatY: -12,
     duration: 3.4,
     size: 44,
@@ -162,7 +167,6 @@ const HeroSection = () => {
   const statusTextClass = isDarkMode ? "text-white/60" : "text-muted-foreground";
   const statusValueClass = isDarkMode ? "text-white/[0.78]" : "text-foreground/70";
   const imageFrameClass = isDarkMode ? "border border-white/[0.12]" : "border border-white/10";
-  const imageOverlayClass = isDarkMode ? "from-slate-950/70" : "from-card/60";
   const scrollTextClass = isDarkMode ? "text-white/60 hover:text-white" : "text-muted-foreground hover:text-foreground";
   const scrollBorderClass = isDarkMode ? "border border-white/20" : "border border-border";
 
@@ -365,11 +369,12 @@ const HeroSection = () => {
                 ))}
               </div>
 
-              <div className="absolute inset-x-10 top-8 bottom-6 flex items-center justify-center sm:inset-x-12 sm:top-10 sm:bottom-8 lg:inset-x-12 lg:top-10 lg:bottom-8 xl:inset-x-14">
+              <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative">
-                  <div className="absolute -inset-1 rotate-1 rounded-[2.5rem] hero-gradient opacity-60 blur-[2px]" />
+                  <div className="absolute -inset-2 rounded-full hero-gradient opacity-50 blur-[6px]" />
+                  <div className="absolute -inset-1 rounded-full hero-gradient opacity-30 blur-[2px]" />
                   <div
-                    className={`relative h-80 w-72 overflow-hidden rounded-[2.25rem] md:h-[360px] md:w-80 xl:h-[400px] xl:w-[340px] ${imageFrameClass}`}
+                    className={`relative h-72 w-72 overflow-hidden rounded-full sm:h-80 sm:w-80 lg:h-[22rem] lg:w-[22rem] xl:h-96 xl:w-96 ${imageFrameClass}`}
                   >
                     <img
                       src={profilePhoto}
@@ -378,7 +383,6 @@ const HeroSection = () => {
                       width={512}
                       height={640}
                     />
-                    <div className={`absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t ${imageOverlayClass} to-transparent`} />
                   </div>
                 </div>
               </div>
