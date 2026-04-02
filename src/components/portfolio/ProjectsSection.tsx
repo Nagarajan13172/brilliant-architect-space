@@ -150,7 +150,7 @@ const projects: Project[] = [
     title: "Brand Portals — PUMA, RayBan, Superdry & More",
     client: "Ace Turtle (August Purple)",
     period: "Feb 2018 – Feb 2021",
-    role: "Software Engineer",
+    role: "Associate Software Engineer",
     summary:
       "Seasonal e-commerce portals for global brands (PUMA, RayBan, Superdry SG, NomadX SG, Aldo) with customizable themes, catalog support, and responsive layout.",
     tech: ["React", "CMS", "XML Layouts", "PLP/PDP", "Responsive Design"],
@@ -168,6 +168,7 @@ const roleColors: Record<string, string> = {
   "Lead Engineer": "bg-accent/10 text-accent",
   "Senior Software Engineer": "bg-purple-500/10 text-purple-400",
   "Software Engineer": "bg-orange-500/10 text-orange-400",
+  "Associate Software Engineer": "bg-cyan-500/10 text-cyan-400",
 };
 
 const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
@@ -184,7 +185,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       }`}
     >
       {/* Card Header */}
-      <div className="p-6">
+      <div className="p-5 sm:p-6">
         <div className="flex items-start justify-between gap-4 mb-4">
           <div className="flex-1 min-w-0">
             <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -264,7 +265,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="px-6 pb-6 border-t border-border pt-4">
+            <div className="border-t border-border px-5 pb-5 pt-4 sm:px-6 sm:pb-6">
               <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
                 Key Contributions
               </p>
@@ -298,7 +299,7 @@ const ProjectsSection = () => {
       <div className="container mx-auto space-y-10">
         {/* Featured project — full width spotlight */}
         <div>
-          <div className="flex items-center gap-2 mb-4">
+          <div className="mb-4 flex items-center gap-2">
             <span className="w-1 h-5 rounded-full hero-gradient inline-block" />
             <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
               Spotlight Project
@@ -313,7 +314,7 @@ const ProjectsSection = () => {
 
         {/* All other projects — 2-col grid */}
         <div>
-          <div className="flex items-center gap-2 mb-4">
+          <div className="mb-4 flex items-center gap-2">
             <span className="w-1 h-5 rounded-full bg-accent inline-block" />
             <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
               All Projects
@@ -332,7 +333,7 @@ const ProjectsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4"
+          className="grid grid-cols-2 gap-4 pt-4 md:grid-cols-4"
         >
           {[
             { value: "8+", label: "Projects Delivered" },

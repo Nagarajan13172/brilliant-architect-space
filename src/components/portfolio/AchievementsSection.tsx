@@ -27,7 +27,7 @@ const AchievementsSection = () => (
     <SectionHeading title="Achievements & Awards" subtitle="Recognition and milestones throughout my career" />
 
     <div className="container mx-auto">
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      <div className="mb-14 grid gap-5 md:mb-16 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
         {achievements.map((item, i) => {
           const Icon = item.icon;
           return (
@@ -38,7 +38,7 @@ const AchievementsSection = () => (
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
               whileHover={{ scale: 1.03 }}
-              className="glass hover-card-glow rounded-2xl p-6 text-center"
+              className="glass hover-card-glow rounded-2xl p-5 text-center sm:p-6"
             >
               <div className="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center mx-auto mb-4">
                 <Icon size={32} className={item.color} />
@@ -55,9 +55,9 @@ const AchievementsSection = () => (
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="glass hover-card-glow rounded-2xl p-8"
+        className="glass hover-card-glow rounded-2xl p-6 sm:p-8"
       >
-        <h3 className="font-display text-2xl font-bold text-center mb-8 text-foreground">Certifications</h3>
+        <h3 className="mb-6 text-center font-display text-xl font-bold text-foreground sm:mb-8 sm:text-2xl">Certifications</h3>
         <div className="flex flex-wrap justify-center gap-3">
           {certifications.map((cert, i) => (
             <motion.span
@@ -66,7 +66,7 @@ const AchievementsSection = () => (
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="px-5 py-3 rounded-xl bg-muted text-foreground text-sm font-medium magnetic-hover"
+              className="rounded-xl bg-muted px-4 py-3 text-center text-xs font-medium text-foreground magnetic-hover sm:px-5 sm:text-sm"
             >
               ✅ {cert}
             </motion.span>

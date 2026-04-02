@@ -54,7 +54,7 @@ const SkillsSection = () => (
   <section id="skills" className="section-padding bg-secondary/30 relative overflow-hidden">
     <SectionHeading title="Skills & Expertise" subtitle="Technologies and tools I work with daily" />
 
-    <div className="container mx-auto grid md:grid-cols-2 gap-8 mb-16">
+    <div className="container mx-auto mb-14 grid gap-6 md:grid-cols-2 md:gap-8 md:mb-16">
       {skillCategories.map((cat, catIdx) => (
         <motion.div
           key={cat.title}
@@ -62,15 +62,15 @@ const SkillsSection = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: catIdx * 0.1, duration: 0.5 }}
-          className="glass hover-card-glow rounded-2xl p-6"
+          className="glass hover-card-glow rounded-2xl p-5 sm:p-6"
         >
-          <h3 className="font-display text-xl font-bold mb-6 text-foreground">{cat.title}</h3>
+          <h3 className="mb-6 font-display text-lg font-bold text-foreground sm:text-xl">{cat.title}</h3>
           <div className="space-y-5">
             {cat.skills.map((skill, i) => (
               <div key={skill.name}>
-                <div className="flex justify-between mb-2">
-                  <span className="text-sm font-medium text-foreground">{skill.name}</span>
-                  <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                <div className="mb-2 flex items-center justify-between gap-3">
+                  <span className="min-w-0 text-sm font-medium text-foreground">{skill.name}</span>
+                  <span className="shrink-0 text-sm text-muted-foreground">{skill.level}%</span>
                 </div>
                 <div className="h-2 rounded-full bg-muted overflow-hidden">
                   <motion.div
@@ -93,12 +93,12 @@ const SkillsSection = () => (
       <motion.div
         animate={{ x: [0, -1500] }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        className="flex gap-8 whitespace-nowrap"
+        className="flex gap-6 whitespace-nowrap sm:gap-8"
       >
         {[...techLogos, ...techLogos].map((tech, i) => (
           <span
             key={i}
-            className="text-2xl font-display font-bold text-muted-foreground/30 select-none"
+            className="select-none font-display text-lg font-bold text-muted-foreground/30 sm:text-2xl"
           >
             {tech}
           </span>

@@ -31,76 +31,90 @@ const education = [
   },
 ];
 
+const accentStyles = [
+  {
+    dotBorder: "border-cyan-500",
+    dotFill: "bg-cyan-500",
+  },
+  {
+    dotBorder: "border-purple-500",
+    dotFill: "bg-purple-500",
+  },
+  {
+    dotBorder: "border-orange-500",
+    dotFill: "bg-orange-500",
+  },
+];
+
 const EducationSection = () => (
   <section id="education" className="section-padding">
     <SectionHeading title="Education" subtitle="My academic journey and continuous learning path" />
 
     <div className="container mx-auto max-w-5xl">
-      {/* Timeline container */}
       <div className="relative">
-        {/* Vertical timeline line - centered */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-500 via-purple-500 to-orange-500" />
+        <div className="absolute bottom-0 left-5 top-0 w-px bg-gradient-to-b from-cyan-500 via-purple-500 to-orange-500 md:left-1/2 md:-translate-x-1/2" />
 
-        {/* Education items */}
-        <div className="space-y-16">
-          {education.map((edu, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.2, duration: 0.6 }}
-              className={`relative flex items-center gap-8 ${i % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
-            >
-              {/* Left/Right spacing for card */}
-              <div className="w-1/2" />
+        <div className="space-y-10 sm:space-y-12 md:space-y-16">
+          {education.map((edu, i) => {
+            const accent = accentStyles[i] ?? accentStyles[accentStyles.length - 1];
+            const isEven = i % 2 === 0;
 
-              {/* Timeline dot - centered */}
-              <div className={`absolute left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-background border-4 flex items-center justify-center z-10 ${i === 0 ? "border-cyan-500" : i === 1 ? "border-purple-500" : "border-orange-500"}`}>
-                <div className={`w-5 h-5 rounded-full ${i === 0 ? "bg-cyan-500" : i === 1 ? "bg-purple-500" : "bg-orange-500"}`} />
-              </div>
-
-              {/* Card container */}
-              <div className="w-1/2">
-                {/* Badge - positioned above card */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.2 + 0.1 }}
-                  className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3 ${edu.badgeColor}`}
+            return (
+              <motion.article
+                key={edu.degree}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ delay: i * 0.18, duration: 0.6 }}
+                className="relative pl-14 sm:pl-16 md:pl-0"
+              >
+                <div
+                  className={`absolute left-5 top-8 z-10 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border-4 bg-background md:left-1/2 ${accent.dotBorder}`}
                 >
-                  {edu.badge}
-                </motion.div>
+                  <div className={`h-4 w-4 rounded-full ${accent.dotFill}`} />
+                </div>
 
-                {/* Content card */}
-                <motion.div
-                  whileHover={{ scale: 1.02, y: -4 }}
-                  className="glass hover-card-glow rounded-xl p-8 border border-border/50"
-                >
-                  {/* Degree */}
-                  <h3 className="font-display text-2xl font-bold text-foreground mb-2">
-                    {edu.degree}
-                  </h3>
+                <div className={`flex ${isEven ? "md:flex-row" : "md:flex-row-reverse"} md:items-start`}>
+                  <div className="w-full md:w-1/2 md:px-8">
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.18 + 0.1 }}
+                      className={`mb-3 inline-flex rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] sm:text-xs ${edu.badgeColor}`}
+                    >
+                      {edu.badge}
+                    </motion.div>
 
-                  {/* Institution */}
-                  <p className="text-primary font-semibold text-base mb-1">
-                    {edu.institution}
-                  </p>
+                    <motion.div
+                      whileHover={{ scale: 1.02, y: -4 }}
+                      className="glass hover-card-glow rounded-2xl border border-border/50 p-5 sm:p-6 md:p-8"
+                    >
+                      <div className="mb-5 flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground sm:text-sm">
+                        <span>{edu.period}</span>
+                        <span className="h-1 w-1 rounded-full bg-muted-foreground/50" />
+                        <span>{edu.location}</span>
+                      </div>
 
-                  {/* Location and Period */}
-                  <p className="text-sm text-muted-foreground mb-5">
-                    {edu.location} • {edu.period}
-                  </p>
+                      <h3 className="mb-2 font-display text-xl font-bold text-foreground sm:text-2xl">
+                        {edu.degree}
+                      </h3>
 
-                  {/* Details */}
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {edu.details}
-                  </p>
-                </motion.div>
-              </div>
-            </motion.div>
-          ))}
+                      <p className="mb-4 text-sm font-semibold text-primary sm:text-base">
+                        {edu.institution}
+                      </p>
+
+                      <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                        {edu.details}
+                      </p>
+                    </motion.div>
+                  </div>
+
+                  <div className="hidden md:block md:w-1/2" />
+                </div>
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </div>

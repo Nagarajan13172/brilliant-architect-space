@@ -6,14 +6,15 @@ const ContactSection = () => (
   <section id="contact" className="section-padding">
     <SectionHeading title="Get In Touch" subtitle="Let's discuss your next project or opportunity" />
 
-    <div className="container mx-auto max-w-5xl grid lg:grid-cols-2 gap-12">
+    <div className="container mx-auto grid max-w-5xl gap-10 lg:grid-cols-2 lg:gap-12">
       <motion.div
         initial={{ opacity: 0, x: -30 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
+        className="text-center lg:text-left"
       >
-        <h3 className="font-display text-2xl font-bold text-foreground mb-6">Let's Build Something Amazing</h3>
-        <p className="text-muted-foreground leading-relaxed mb-8">
+        <h3 className="mb-6 font-display text-2xl font-bold text-foreground sm:text-3xl">Let's Build Something Amazing</h3>
+        <p className="mb-8 text-sm leading-relaxed text-muted-foreground sm:text-base">
           I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
           Whether you need a technical lead, architecture consultation, or just want to chat about tech — reach out!
         </p>
@@ -24,16 +25,16 @@ const ContactSection = () => (
             { icon: Phone, label: "+91 9786452324", href: "tel:+919786452324" },
             { icon: MapPin, label: "Bengaluru, India", href: "#" },
           ].map(({ icon: Icon, label, href }) => (
-            <a key={label} href={href} className="flex items-center gap-4 text-muted-foreground hover:text-foreground transition-colors group">
+            <a key={label} href={href} className="group flex items-center justify-center gap-4 text-muted-foreground transition-colors hover:text-foreground lg:justify-start">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                 <Icon size={20} className="text-primary" />
               </div>
-              <span className="font-medium">{label}</span>
+              <span className="font-medium break-all sm:break-normal">{label}</span>
             </a>
           ))}
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex justify-center gap-3 lg:justify-start">
           {[
             { icon: Github, href: "https://github.com/gitOfKumarSathish" },
             { icon: Linkedin, href: "https://linkedin.com/in/sathish7845kumar" },
@@ -54,7 +55,7 @@ const ContactSection = () => (
         initial={{ opacity: 0, x: 30 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        className="glass hover-card-glow rounded-2xl p-8 space-y-6"
+        className="glass hover-card-glow space-y-6 rounded-2xl p-5 sm:p-8"
         onSubmit={(e) => e.preventDefault()}
       >
         <div className="grid sm:grid-cols-2 gap-4">

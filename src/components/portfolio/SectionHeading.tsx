@@ -6,20 +6,20 @@ const SectionHeading = ({ title, subtitle }: { title: string; subtitle?: string 
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6 }}
-    className="text-center mb-16"
+    className="mb-12 px-4 text-center sm:px-5 md:mb-16 md:px-6"
   >
-    <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
+    <h2 className="mb-4 font-display text-3xl font-bold sm:text-4xl md:text-5xl">
       <span className="text-gradient">{title}</span>
     </h2>
     {subtitle && (
-      <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{subtitle}</p>
+      <p className="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg">{subtitle}</p>
     )}
     <motion.div
       initial={{ scaleX: 0 }}
       whileInView={{ scaleX: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: 0.3 }}
-      className="h-1 w-20 hero-gradient rounded-full mx-auto mt-6"
+      className="mx-auto mt-5 h-1 w-16 rounded-full hero-gradient sm:mt-6 sm:w-20"
     />
   </motion.div>
 );

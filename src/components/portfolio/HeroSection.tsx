@@ -189,7 +189,7 @@ const HeroSection = () => {
     <section
       id="hero"
       ref={heroRef}
-      className="relative isolate flex min-h-screen items-center overflow-hidden bg-background"
+      className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-background"
     >
       <div ref={bgRef} aria-hidden="true" className="absolute inset-0 pointer-events-none">
         {isDarkMode ? (
@@ -198,9 +198,9 @@ const HeroSection = () => {
           <div className="absolute inset-0">
             <div className="absolute top-0 right-0 h-[70vh] w-[70vw] rounded-full bg-primary/6 blur-[120px]" />
             <div className="absolute bottom-0 left-0 h-[50vh] w-[50vw] rounded-full bg-accent/6 blur-[100px]" />
-            <div className="absolute top-1/2 right-[22%] h-[480px] w-[480px] -translate-y-1/2 rounded-full border border-primary/8 animate-rotate-slow" />
+            <div className="absolute top-1/2 right-[22%] hidden h-[480px] w-[480px] -translate-y-1/2 rounded-full border border-primary/8 animate-rotate-slow md:block" />
             <div
-              className="absolute top-1/2 right-[22%] h-[600px] w-[600px] -translate-y-1/2 rounded-full border border-primary/5 animate-rotate-slow"
+              className="absolute top-1/2 right-[22%] hidden h-[600px] w-[600px] -translate-y-1/2 rounded-full border border-primary/5 animate-rotate-slow md:block"
               style={{ animationDirection: "reverse", animationDuration: "30s" }}
             />
             <div className="absolute top-32 left-[42%] h-2 w-2 rounded-full bg-primary/30 animate-pulse-glow" />
@@ -212,14 +212,14 @@ const HeroSection = () => {
         )}
       </div>
 
-      <div className="container relative z-10 mx-auto px-6">
-        <div className="grid min-h-[85vh] items-center gap-10 py-20 lg:grid-cols-[1fr_420px] lg:gap-16 xl:grid-cols-[1fr_460px]">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6">
+        <div className="grid items-center gap-8 py-16 sm:gap-10 sm:py-20 md:min-h-[85vh] lg:grid-cols-[minmax(0,1fr)_minmax(320px,420px)] lg:gap-16 xl:grid-cols-[minmax(0,1fr)_460px]">
           <div className="order-2 flex flex-col items-center text-center lg:order-1 lg:items-start lg:text-left">
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className={`mb-2 text-base font-semibold uppercase tracking-widest ${introTextClass}`}
+              className={`mb-2 text-sm font-semibold uppercase tracking-[0.3em] sm:text-base ${introTextClass}`}
             >
               Hi, I&apos;m
             </motion.p>
@@ -228,14 +228,14 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="mb-3 font-display text-5xl font-bold leading-[1.05] md:text-6xl xl:text-7xl"
+              className="mb-3 font-display text-4xl font-bold leading-[1.02] sm:text-5xl md:text-6xl xl:text-7xl"
             >
               <span className="text-gradient">Sathish Kumar</span>
             </motion.h1>
 
             <AnimatedText
               text="Technical Lead & Full-Stack Engineer"
-              className={`mb-6 font-display text-2xl font-semibold leading-snug md:text-3xl ${roleTextClass}`}
+              className={`mb-5 font-display text-xl font-semibold leading-snug sm:text-2xl md:mb-6 md:text-3xl ${roleTextClass}`}
               delay={0.5}
             />
 
@@ -243,7 +243,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.75, duration: 0.6 }}
-              className={`mx-auto mb-7 max-w-xl text-base leading-relaxed lg:mx-0 ${bodyTextClass}`}
+              className={`mx-auto mb-6 max-w-xl text-sm leading-relaxed sm:text-base md:mb-7 lg:mx-0 ${bodyTextClass}`}
             >
               8+ years architecting enterprise-grade applications across IoT, Telecom, and
               E-commerce. Specialist in multi-tenant monorepos, real-time data visualization,
@@ -254,12 +254,12 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.5 }}
-              className="mb-8 flex flex-wrap justify-center gap-2 lg:justify-start"
+              className="mb-7 flex flex-wrap justify-center gap-2 sm:mb-8 lg:justify-start"
             >
               {expertiseTags.map((tag) => (
                 <span
                   key={tag}
-                  className={`rounded-lg px-3 py-1.5 text-xs font-mono transition-colors ${pillClass}`}
+                  className={`rounded-lg px-2.5 py-1.5 text-[11px] font-mono transition-colors sm:px-3 sm:text-xs ${pillClass}`}
                 >
                   {tag}
                 </span>
@@ -270,18 +270,18 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.05, duration: 0.5 }}
-              className="mb-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start"
+              className="mb-8 flex w-full max-w-md flex-col items-stretch justify-center gap-3 sm:max-w-none sm:flex-row sm:items-center lg:justify-start"
             >
               <a
                 href="#contact"
-                className="hero-gradient inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-primary/25"
+                className="hero-gradient inline-flex w-full items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-primary/25 sm:w-auto"
               >
                 <Mail size={16} />
                 Get In Touch
               </a>
               <a
                 href="#projects"
-                className={`inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 ${secondaryButtonClass}`}
+                className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 sm:w-auto ${secondaryButtonClass}`}
               >
                 <FileText size={16} />
                 View Work
@@ -292,7 +292,7 @@ const HeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2 }}
-              className="flex w-full flex-wrap items-center justify-center gap-4 lg:justify-start"
+              className="flex w-full max-w-lg flex-wrap items-center justify-center gap-3 sm:gap-4 lg:max-w-none lg:justify-start"
             >
               {[
                 {
@@ -324,7 +324,7 @@ const HeroSection = () => {
                   href={href}
                   whileHover={{ scale: 1.12, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`rounded-xl p-2.5 transition-colors ${socialButtonClass}`}
+                  className={`rounded-xl p-2.5 transition-colors sm:p-3 ${socialButtonClass}`}
                   aria-label={label}
                 >
                   {svg}
@@ -335,7 +335,7 @@ const HeroSection = () => {
                 className={`hidden h-5 w-px sm:block ${isDarkMode ? "bg-white/[0.14]" : "bg-border"}`}
               />
 
-              <div className={`flex w-full items-center justify-center gap-2 text-xs lg:w-auto lg:justify-start ${statusTextClass}`}>
+              <div className={`flex w-full items-center justify-center gap-2 text-[11px] sm:text-xs lg:w-auto lg:justify-start ${statusTextClass}`}>
                 <span className="font-medium text-accent">Currently building</span>
                 <span className={`font-mono ${statusValueClass}`}>OtoSense SMS</span>
               </div>
@@ -353,11 +353,11 @@ const HeroSection = () => {
               Image fills it; icons use angle math to sit on the circumference.
               Outer padding (p-10) gives room for icons that extend beyond the edge.
             */}
-            <div className="relative p-10 sm:p-12 lg:p-14">
+            <div className="relative p-4 sm:p-8 lg:p-12 xl:p-14">
               {/* Circle: image + glow ring */}
-              <div className="relative h-[19rem] w-[19rem] sm:h-[22rem] sm:w-[22rem] lg:h-[25rem] lg:w-[25rem] xl:h-[27rem] xl:w-[27rem]">
+              <div className="relative h-[16rem] w-[16rem] sm:h-[20rem] sm:w-[20rem] lg:h-[24rem] lg:w-[24rem] xl:h-[27rem] xl:w-[27rem]">
                 {/* Glow rings */}
-                <div className="absolute -inset-3 rounded-full hero-gradient opacity-40 blur-[10px] pointer-events-none" />
+                <div className="absolute -inset-2 rounded-full hero-gradient opacity-40 blur-[10px] pointer-events-none sm:-inset-3" />
                 <div className="absolute -inset-1 rounded-full hero-gradient opacity-25 blur-[3px] pointer-events-none" />
 
                 {/* Photo */}
@@ -374,13 +374,14 @@ const HeroSection = () => {
                 {/* Icons pinned to circumference via angle math */}
                 {floatingIcons.map((icon, i) => {
                   const rad = (icon.angle * Math.PI) / 180;
+                  const orbitRadius = 46;
                   return (
                     <motion.div
                       key={icon.label}
                       className="absolute z-10 pointer-events-none"
                       style={{
-                        left: `${50 + Math.cos(rad) * 50}%`,
-                        top: `${50 + Math.sin(rad) * 50}%`,
+                        left: `${50 + Math.cos(rad) * orbitRadius}%`,
+                        top: `${50 + Math.sin(rad) * orbitRadius}%`,
                         translate: "-50% -50%",
                       }}
                       initial={{ opacity: 0, scale: 0 }}
@@ -401,7 +402,7 @@ const HeroSection = () => {
                       }}
                     >
                       <div
-                        className={`flex items-center justify-center rounded-2xl border shadow-xl backdrop-blur-md ${icon.bg} ${icon.border}`}
+                        className={`flex scale-[0.8] items-center justify-center rounded-2xl border shadow-xl backdrop-blur-md sm:scale-100 ${icon.bg} ${icon.border}`}
                         style={{ width: icon.size, height: icon.size }}
                         title={icon.label}
                       >
@@ -419,7 +420,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 md:block"
         >
           <motion.a
             href="#about"

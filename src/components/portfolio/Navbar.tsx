@@ -39,13 +39,13 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass py-3" : "py-5 bg-transparent"
+        scrolled ? "glass py-3" : "bg-transparent py-4 sm:py-5"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between px-6">
+      <div className="container mx-auto flex items-center justify-between px-4 sm:px-6">
         <motion.a
           href="#hero"
-          className="font-display text-xl font-bold text-gradient"
+          className="font-display text-lg font-bold text-gradient sm:text-xl"
           whileHover={{ scale: 1.05 }}
         >
           {"<Dev />"}
@@ -66,7 +66,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           {/* Palette picker */}
           <div className="relative">
             <motion.button
@@ -130,7 +130,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden glass mt-2 mx-4 rounded-xl overflow-hidden"
+            className="mx-3 mt-2 overflow-hidden rounded-xl glass lg:hidden sm:mx-4"
           >
             <div className="p-4 flex flex-col gap-3">
               {navLinks.map((link) => (
