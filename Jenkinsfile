@@ -38,15 +38,6 @@ pipeline {
       }
     }
 
-    stage('Push Image') {
-      steps {
-        script {
-          def tag = params.ENV_TARGET
-          sh "docker push $DOCKER_REGISTRY/$DOCKER_IMAGE:latest"
-        }
-      }
-    }
-  }
 
   post {
     always {
