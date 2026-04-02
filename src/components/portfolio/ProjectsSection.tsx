@@ -338,7 +338,7 @@ const ProjectsSection = () => {
             { value: "8+", label: "Projects Delivered" },
             { value: "41+", label: "Reusable Components" },
             { value: "28+", label: "Global Partners" },
-            { value: "9+", label: "Years of Experience" },
+            { value: "8+", label: "Years of Experience" },
           ].map(({ value, label }) => (
             <div
               key={label}

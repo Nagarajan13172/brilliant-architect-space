@@ -3,22 +3,34 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Mail, FileText, Zap } from "lucide-react";
-import profilePhoto from "@/assets/profile-photo.jpg";
+import profilePhoto from "@/assets/sathish.jpeg";
+import { useTheme } from "@/context/ThemeContext";
 import AnimatedText from "./AnimatedText";
+import HyperspaceBackground from "./HyperspaceBackground";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const expertiseTags = [
-  "React" , "Node", "TypeScript", "Angular", "MongoDB", "Express", "CucumberJs", "WDIO",
+  "React",
+  "Node",
+  "TypeScript",
+  "Angular",
+  "MongoDB",
+  "Express",
+  "CucumberJs",
+  "WDIO",
 ];
 
 const HeroSection = () => {
+  const { mode } = useTheme();
+  const isDarkMode = mode === "dark";
   const heroRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!bgRef.current || !heroRef.current) return;
-    gsap.to(bgRef.current, {
+
+    const backgroundTween = gsap.to(bgRef.current, {
       y: 180,
       opacity: 0.2,
       scrollTrigger: {
@@ -28,117 +40,135 @@ const HeroSection = () => {
         scrub: 1,
       },
     });
-    return () => { ScrollTrigger.getAll().forEach(t => t.kill()); };
+
+    return () => {
+      backgroundTween.scrollTrigger?.kill();
+      backgroundTween.kill();
+    };
   }, []);
+
+  const introTextClass = isDarkMode ? "text-white/60" : "text-muted-foreground";
+  const roleTextClass = isDarkMode ? "text-white/[0.85]" : "text-foreground/80";
+  const bodyTextClass = isDarkMode ? "text-white/[0.72]" : "text-muted-foreground";
+  const pillClass = isDarkMode
+    ? "border border-white/10 bg-white/[0.06] text-white/[0.72] backdrop-blur-sm hover:border-primary/40 hover:text-white"
+    : "border border-border bg-secondary text-muted-foreground hover:border-primary/30 hover:text-foreground";
+  const secondaryButtonClass = isDarkMode
+    ? "border border-white/[0.15] bg-white/[0.06] text-white backdrop-blur-sm hover:border-primary/40 hover:bg-white/[0.12]"
+    : "border border-border bg-card text-foreground hover:border-primary/40 hover:bg-secondary";
+  const socialButtonClass = isDarkMode
+    ? "border border-white/[0.12] bg-white/[0.06] text-white/[0.68] hover:border-primary/30 hover:text-white"
+    : "border border-border bg-secondary text-muted-foreground hover:border-primary/30 hover:text-foreground";
+  const statusTextClass = isDarkMode ? "text-white/60" : "text-muted-foreground";
+  const statusValueClass = isDarkMode ? "text-white/[0.78]" : "text-foreground/70";
+  const imageFrameClass = isDarkMode ? "border border-white/[0.12]" : "border border-white/10";
+  const imageOverlayClass = isDarkMode ? "from-slate-950/70" : "from-card/60";
+  const scrollTextClass = isDarkMode ? "text-white/60 hover:text-white" : "text-muted-foreground hover:text-foreground";
+  const scrollBorderClass = isDarkMode ? "border border-white/20" : "border border-border";
 
   return (
     <section
       id="hero"
       ref={heroRef}
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative isolate flex min-h-screen items-center overflow-hidden bg-background"
     >
-      {/* ── Background layer ── */}
-      <div ref={bgRef} className="absolute inset-0 pointer-events-none">
-        {/* Soft radial spotlight */}
-        <div className="absolute top-0 right-0 w-[70vw] h-[70vh] rounded-full bg-primary/6 blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-[50vw] h-[50vh] rounded-full bg-accent/6 blur-[100px]" />
-        {/* Orbiting decoration rings */}
-        <div className="absolute top-1/2 right-[22%] -translate-y-1/2 w-[480px] h-[480px] rounded-full border border-primary/8 animate-rotate-slow" />
-        <div
-          className="absolute top-1/2 right-[22%] -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-primary/5 animate-rotate-slow"
-          style={{ animationDirection: "reverse", animationDuration: "30s" }}
-        />
-        {/* Corner accent dots */}
-        <div className="absolute top-32 left-[42%] w-2 h-2 rounded-full bg-primary/30 animate-pulse-glow" />
-        <div className="absolute bottom-40 right-[48%] w-1.5 h-1.5 rounded-full bg-accent/40 animate-pulse-glow" style={{ animationDelay: "1s" }} />
+      <div ref={bgRef} aria-hidden="true" className="absolute inset-0 pointer-events-none">
+        {isDarkMode ? (
+          <HyperspaceBackground />
+        ) : (
+          <div className="absolute inset-0">
+            <div className="absolute top-0 right-0 h-[70vh] w-[70vw] rounded-full bg-primary/6 blur-[120px]" />
+            <div className="absolute bottom-0 left-0 h-[50vh] w-[50vw] rounded-full bg-accent/6 blur-[100px]" />
+            <div className="absolute top-1/2 right-[22%] h-[480px] w-[480px] -translate-y-1/2 rounded-full border border-primary/8 animate-rotate-slow" />
+            <div
+              className="absolute top-1/2 right-[22%] h-[600px] w-[600px] -translate-y-1/2 rounded-full border border-primary/5 animate-rotate-slow"
+              style={{ animationDirection: "reverse", animationDuration: "30s" }}
+            />
+            <div className="absolute top-32 left-[42%] h-2 w-2 rounded-full bg-primary/30 animate-pulse-glow" />
+            <div
+              className="absolute bottom-40 right-[48%] h-1.5 w-1.5 rounded-full bg-accent/40 animate-pulse-glow"
+              style={{ animationDelay: "1s" }}
+            />
+          </div>
+        )}
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_460px] gap-16 items-center min-h-[85vh] py-20">
-
-          {/* ── LEFT: Text content ── */}
+      <div className="container relative z-10 mx-auto px-6">
+        <div className="grid min-h-[85vh] items-center gap-16 py-20 lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_460px]">
           <div className="flex flex-col">
-
-            {/* Name */}
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="text-base font-semibold text-muted-foreground tracking-widest uppercase mb-2"
+              className={`mb-2 text-base font-semibold uppercase tracking-widest ${introTextClass}`}
             >
-              Hi, I'm
+              Hi, I&apos;m
             </motion.p>
 
-            {/* Main name — large gradient */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="font-display text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.05] mb-3"
+              className="mb-3 font-display text-5xl font-bold leading-[1.05] md:text-6xl xl:text-7xl"
             >
               <span className="text-gradient">Sathish Kumar</span>
             </motion.h1>
 
-            {/* Role line */}
             <AnimatedText
               text="Technical Lead & Full-Stack Engineer"
-              className="font-display text-2xl md:text-3xl font-semibold text-foreground/80 leading-snug mb-6"
+              className={`mb-6 font-display text-2xl font-semibold leading-snug md:text-3xl ${roleTextClass}`}
               delay={0.5}
             />
 
-            {/* Bio */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.75, duration: 0.6 }}
-              className="text-base text-muted-foreground max-w-xl leading-relaxed mb-7"
+              className={`mb-7 max-w-xl text-base leading-relaxed ${bodyTextClass}`}
             >
-              9+ years architecting enterprise-grade applications across IoT, Telecom, and
+              8+ years architecting enterprise-grade applications across IoT, Telecom, and
               E-commerce. Specialist in multi-tenant monorepos, real-time data visualization,
               and white-label systems serving global clients.
             </motion.p>
 
-            {/* Expertise tags */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.5 }}
-              className="flex flex-wrap gap-2 mb-8"
+              className="mb-8 flex flex-wrap gap-2"
             >
               {expertiseTags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-xs font-mono px-3 py-1.5 rounded-lg bg-secondary text-muted-foreground border border-border hover:border-primary/30 hover:text-foreground transition-colors"
+                  className={`rounded-lg px-3 py-1.5 text-xs font-mono transition-colors ${pillClass}`}
                 >
                   {tag}
                 </span>
               ))}
             </motion.div>
 
-            {/* CTA buttons */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.05, duration: 0.5 }}
-              className="flex flex-wrap items-center gap-3 mb-8"
+              className="mb-8 flex flex-wrap items-center gap-3"
             >
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl hero-gradient text-primary-foreground font-semibold text-sm shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all duration-200"
+                className="hero-gradient inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-primary/25"
               >
                 <Mail size={16} />
                 Get In Touch
               </a>
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-border bg-card text-foreground font-semibold text-sm hover:border-primary/40 hover:bg-secondary hover:-translate-y-0.5 transition-all duration-200"
+                className={`inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 ${secondaryButtonClass}`}
               >
                 <FileText size={16} />
                 View Work
               </a>
             </motion.div>
 
-            {/* Social + currently building */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -175,58 +205,48 @@ const HeroSection = () => {
                   href={href}
                   whileHover={{ scale: 1.12, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-2.5 rounded-xl bg-secondary border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors"
+                  className={`rounded-xl p-2.5 transition-colors ${socialButtonClass}`}
                   aria-label={label}
                 >
                   {svg}
                 </motion.a>
               ))}
 
-              <span className="w-px h-5 bg-border mx-1" />
+              <span className={`mx-1 h-5 w-px ${isDarkMode ? "bg-white/[0.14]" : "bg-border"}`} />
 
-              {/* Live work indicator */}
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <span className="flex items-center gap-1 text-accent font-medium">
-                  <Zap size={12} className="fill-accent" />
-                  Currently building
-                </span>
-                <span className="font-mono text-foreground/70">OtoSense® SMS</span>
+              <div className={`flex items-center gap-2 text-xs ${statusTextClass}`}>
+                <span className="font-medium text-accent">Currently building</span>
+                <span className={`font-mono ${statusValueClass}`}>OtoSense SMS</span>
               </div>
             </motion.div>
           </div>
 
-          {/* ── RIGHT: Photo + stats ── */}
           <motion.div
             initial={{ opacity: 0, scale: 0.88, x: 30 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.9, ease: "easeOut" }}
             className="relative flex justify-center lg:justify-end"
           >
-            {/* Outer glow backdrop */}
-            <div className="absolute inset-0 rounded-full hero-gradient opacity-10 blur-3xl scale-110" />
+            <div className="absolute inset-0 scale-110 rounded-full hero-gradient opacity-10 blur-3xl" />
 
-            {/* Photo frame */}
             <div className="relative">
-              {/* Gradient ring */}
-              <div className="absolute -inset-1 rounded-[2.5rem] hero-gradient opacity-60 blur-[2px] rotate-1" />
-              <div className="relative w-72 h-80 md:w-80 md:h-[360px] xl:w-[340px] xl:h-[400px] rounded-[2.25rem] overflow-hidden border border-white/10">
+              <div className="absolute -inset-1 rotate-1 rounded-[2.5rem] hero-gradient opacity-60 blur-[2px]" />
+              <div
+                className={`relative h-80 w-72 overflow-hidden rounded-[2.25rem] md:h-[360px] md:w-80 xl:h-[400px] xl:w-[340px] ${imageFrameClass}`}
+              >
                 <img
                   src={profilePhoto}
-                  alt="Sathish Kumar — Technical Lead Engineer"
-                  className="w-full h-full object-cover object-top"
+                  alt="Sathish Kumar Technical Lead Engineer"
+                  className="h-full w-full object-cover object-top"
                   width={512}
                   height={640}
                 />
-                {/* Subtle bottom gradient overlay */}
-                <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-card/60 to-transparent" />
+                <div className={`absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t ${imageOverlayClass} to-transparent`} />
               </div>
-
-
             </div>
           </motion.div>
         </div>
 
-        {/* ── Scroll indicator ── */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -237,14 +257,14 @@ const HeroSection = () => {
             href="#about"
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
+            className={`flex flex-col items-center gap-1.5 transition-colors ${scrollTextClass}`}
           >
-            <span className="text-[11px] font-medium tracking-wider uppercase">Scroll</span>
-            <div className="w-5 h-8 rounded-full border border-border flex items-start justify-center pt-1.5">
+            <span className="text-[11px] font-medium uppercase tracking-wider">Scroll</span>
+            <div className={`flex h-8 w-5 items-start justify-center rounded-full pt-1.5 ${scrollBorderClass}`}>
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                className="w-1 h-1.5 rounded-full bg-primary"
+                className="h-1.5 w-1 rounded-full bg-primary"
               />
             </div>
           </motion.a>

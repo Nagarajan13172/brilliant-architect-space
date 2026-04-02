@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 const stats = [
   { icon: Code2, value: "41+", label: "Reusable Components" },
   { icon: Users, value: "28+", label: "Global Partners" },
-  { icon: Rocket, value: "9+", label: "Years Experience" },
+  { icon: Rocket, value: "8+", label: "Years Experience" },
   { icon: Award, value: "Multi-Tenant", label: "Architecture" },
 ];
 
@@ -42,7 +42,7 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-            Accomplished Technical Lead and Full-Stack Engineer with 9+ years of experience delivering scalable, technology-driven solutions across Telecom, E-commerce, and IoT domains. Expertise in MERN and MEAN stacks, with a proven track record of architecting multi-tenant mono-repos and reusable component libraries (41+ components) that streamline development for complex enterprise applications.
+            Accomplished Technical Lead and Full-Stack Engineer with 8+ years of experience delivering scalable, technology-driven solutions across Telecom, E-commerce, and IoT domains. Expertise in MERN and MEAN stacks, with a proven track record of architecting multi-tenant mono-repos and reusable component libraries (41+ components) that streamline development for complex enterprise applications.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed mb-6">
             Versatile Hybrid Developer proficient in building cross-platform desktop applications (Windows, Linux, Mac) using Electron and high-performance mobile applications (iOS, Android) via Ionic. Specialized in high-performance data visualization, utilizing Highcharts, ag-Grid, and Kibana to build real-time monitoring dashboards and time-series tracking systems.

@@ -336,7 +336,7 @@ const ExperienceSection = () => (
   <section id="experience" className="section-padding">
     <SectionHeading
       title="Work Experience"
-      subtitle="9+ years across IoT, Telecom, E-commerce, and Automation"
+      subtitle="8+ years across IoT, Telecom, E-commerce, and Automation"
     />
 
     <div className="container mx-auto max-w-6xl px-4">
