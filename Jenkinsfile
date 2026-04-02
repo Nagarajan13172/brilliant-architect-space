@@ -15,13 +15,6 @@ pipeline {
       }
     }
 
-    stage('Inject ENV') {
-      steps {
-        withCredentials([file(credentialsId: 'ENV_FILE', variable: 'ENV_FILE')]) {
-          sh 'cp "$ENV_FILE" .env'
-        }
-      }
-    }
 
     stage('Build Docker Image') {
       steps {
