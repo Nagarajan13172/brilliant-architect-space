@@ -3,7 +3,7 @@ pipeline {
 
   environment {
     DOCKER_IMAGE    = 'sathish-portfolio'
-    DOCKER_REGISTRY = 'sathish'
+    DOCKER_REGISTRY = 'ghcr.io/Nagarajan13172/'
   }
 
   stages {
@@ -15,13 +15,6 @@ pipeline {
       }
     }
 
-    stage('Inject ENV') {
-      steps {
-        withCredentials([file(credentialsId: 'ENV_FILE', variable: 'ENV_FILE')]) {
-          sh 'cp "$ENV_FILE" .env'
-        }
-      }
-    }
 
     stage('Build Docker Image') {
       steps {
@@ -41,18 +34,6 @@ pipeline {
           sh """
             docker compose up -d
           """
-        }
-      }
-    }
-
-    stage('Login to Registry') {
-      steps {
-        withCredentials([usernamePassword(
-          credentialsId:   'GITHUB_SECRET',
-          usernameVariable: 'USERNAME',
-          passwordVariable: 'PASSWORD'
-        )]) {
-          sh 'echo $PASSWORD | docker login $DOCKER_REGISTRY -u $USERNAME --password-stdin'
         }
       }
     }
