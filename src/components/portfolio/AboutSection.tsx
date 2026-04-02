@@ -54,12 +54,6 @@ const aboutLeftHighlights = [
   "Automation-led release quality",
 ];
 
-const recentImpact = [
-  "Improved feature delivery cycle time by ~30% through platform standardization.",
-  "Enabled 28+ partner-ready deployments using a unified white-label architecture.",
-  "Raised regression confidence with automation-first quality workflows.",
-];
-
 const AboutSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -98,20 +92,15 @@ const AboutSection = () => {
             <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
               I lead cross-functional teams through discovery, architecture, execution, and release while serving as a primary client-facing technical contact for enterprise programs.
             </p>
-
-            <div className="about-animate mt-6 rounded-2xl border border-border/60 bg-card/55 p-4 backdrop-blur-sm sm:p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Recent Impact
-              </p>
-              <ul className="mt-3 space-y-2.5">
-                {recentImpact.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-foreground/90">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              I specialize in converting complex enterprise requirements into scalable platform solutions with clear architecture boundaries and reusable engineering patterns.
+            </p>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              My focus is to deliver maintainable, high-quality products by aligning engineering velocity, stakeholder expectations, and long-term platform sustainability.
+            </p>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              I consistently drive execution clarity through structured planning, risk identification, and transparent communication across engineering and business teams.
+            </p>
           </div>
 
           <div className="about-animate mt-6 rounded-2xl border border-border/60 bg-card/50 p-4 backdrop-blur-sm sm:p-5 lg:mt-8">
