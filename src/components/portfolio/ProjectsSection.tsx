@@ -179,7 +179,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.08, duration: 0.5 }}
-      className={`glass rounded-2xl overflow-hidden ${
+      className={`glass hover-card-glow rounded-2xl overflow-hidden ${
         project.featured ? "ring-1 ring-primary/30" : ""
       }`}
     >
@@ -342,7 +342,7 @@ const ProjectsSection = () => {
           ].map(({ value, label }) => (
             <div
               key={label}
-              className="glass rounded-xl p-4 text-center border border-border"
+              className="glass hover-card-glow rounded-xl p-4 text-center border border-border"
             >
               <div className="font-display text-2xl font-bold text-gradient mb-1">
                 {value}

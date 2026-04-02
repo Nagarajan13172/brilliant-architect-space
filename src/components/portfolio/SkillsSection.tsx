@@ -62,7 +62,7 @@ const SkillsSection = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: catIdx * 0.1, duration: 0.5 }}
-          className="glass rounded-2xl p-6"
+          className="glass hover-card-glow rounded-2xl p-6"
         >
           <h3 className="font-display text-xl font-bold mb-6 text-foreground">{cat.title}</h3>
           <div className="space-y-5">

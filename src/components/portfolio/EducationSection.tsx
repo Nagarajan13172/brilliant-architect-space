@@ -76,7 +76,7 @@ const EducationSection = () => (
                 {/* Content card */}
                 <motion.div
                   whileHover={{ scale: 1.02, y: -4 }}
-                  className="glass rounded-xl p-8 border border-border/50"
+                  className="glass hover-card-glow rounded-xl p-8 border border-border/50"
                 >
                   {/* Degree */}
                   <h3 className="font-display text-2xl font-bold text-foreground mb-2">

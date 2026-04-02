@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Mail, FileText, Zap } from "lucide-react";
+import { Mail, FileText } from "lucide-react";
 import profilePhoto from "@/assets/sathish.jpeg";
 import { useTheme } from "@/context/ThemeContext";
 import AnimatedText from "./AnimatedText";
@@ -12,7 +12,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 type FloatingIcon = {
   label: string;
-  className: string;
+  /** Degrees: 0 = right, 90 = bottom, 180 = left, -90 = top */
+  angle: number;
   floatY?: number;
   duration?: number;
   size: number;
@@ -24,12 +25,12 @@ type FloatingIcon = {
 const floatingIcons: FloatingIcon[] = [
   {
     label: "React",
-    className: "left-4 top-12 sm:left-6 sm:top-14 lg:left-6 lg:top-16",
+    angle: -130,
     floatY: -12,
     duration: 3.2,
-    size: 52,
-    bg: "bg-[#20232a]/80",
-    border: "border-[#61DAFB]/30",
+    size: 50,
+    bg: "bg-[#20232a]/90",
+    border: "border-[#61DAFB]/40",
     svg: (
       <svg viewBox="0 0 24 24" width="26" height="26">
         <circle cx="12" cy="12" r="2.05" fill="#61DAFB"/>
@@ -43,12 +44,12 @@ const floatingIcons: FloatingIcon[] = [
   },
   {
     label: "Angular",
-    className: "right-4 top-12 sm:right-6 sm:top-14 lg:right-6 lg:top-16",
+    angle: -50,
     floatY: -14,
     duration: 2.8,
-    size: 52,
-    bg: "bg-[#1a0a0a]/80",
-    border: "border-[#DD0031]/30",
+    size: 50,
+    bg: "bg-[#1a0a0a]/90",
+    border: "border-[#DD0031]/40",
     svg: (
       <svg viewBox="0 0 24 24" width="26" height="26">
         <path fill="#DD0031" d="M12 2L2 6.5l1.5 13L12 22l8.5-2.5L22 6.5z"/>
@@ -58,41 +59,13 @@ const floatingIcons: FloatingIcon[] = [
     ),
   },
   {
-    label: "TypeScript",
-    className: "left-4 bottom-16 sm:left-6 sm:bottom-20 lg:left-6 lg:bottom-20",
-    floatY: -10,
-    duration: 3.6,
-    size: 48,
-    bg: "bg-[#0d1117]/80",
-    border: "border-[#3178C6]/30",
-    svg: (
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="#3178C6">
-        <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/>
-      </svg>
-    ),
-  },
-  {
-    label: "Node.js",
-    className: "right-2 top-1/2 -translate-y-1/2 sm:right-3 lg:right-2",
-    floatY: -8,
-    duration: 4,
-    size: 48,
-    bg: "bg-[#0a1a0a]/80",
-    border: "border-[#339933]/30",
-    svg: (
-      <svg viewBox="0 0 24 24" width="26" height="26" fill="#339933">
-        <path d="M11.998 24a1.47 1.47 0 0 1-.732-.196l-2.328-1.377c-.348-.194-.178-.263-.063-.303.464-.161.557-.198 1.052-.479a.177.177 0 0 1 .171.014l1.788 1.062a.228.228 0 0 0 .215 0l6.973-4.026a.22.22 0 0 0 .108-.19V7.497a.222.222 0 0 0-.109-.192l-6.971-4.024a.218.218 0 0 0-.214 0L5.936 7.306a.222.222 0 0 0-.109.19v8.052c0 .078.042.15.109.190l1.91 1.104c1.037.519 1.671-.092 1.671-.707V8.258a.2.2 0 0 1 .2-.2h.874a.2.2 0 0 1 .2.2v8.879c0 1.384-.755 2.178-2.068 2.178-.403 0-.72 0-1.606-.436l-1.83-1.054a1.471 1.471 0 0 1-.733-1.274V7.497c0-.526.28-1.015.733-1.274l6.972-4.027a1.527 1.527 0 0 1 1.466 0l6.973 4.027c.453.259.733.748.733 1.274v8.052c0 .526-.28 1.015-.733 1.274l-6.973 4.026a1.47 1.47 0 0 1-.732.196z"/>
-      </svg>
-    ),
-  },
-  {
-    label: "Web",
-    className: "left-2 top-1/2 -translate-y-1/2 sm:left-3 lg:left-2",
+    label: "JavaScript",
+    angle: 180,
     floatY: -16,
     duration: 3,
-    size: 44,
-    bg: "bg-[#1a1200]/80",
-    border: "border-[#F7DF1E]/30",
+    size: 46,
+    bg: "bg-[#1a1200]/90",
+    border: "border-[#F7DF1E]/40",
     svg: (
       <svg viewBox="0 0 24 24" width="22" height="22">
         <path fill="#F7DF1E" d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
@@ -100,16 +73,58 @@ const floatingIcons: FloatingIcon[] = [
     ),
   },
   {
+    label: "Node.js",
+    angle: 0,
+    floatY: -8,
+    duration: 4,
+    size: 46,
+    bg: "bg-[#0a1a0a]/90",
+    border: "border-[#339933]/40",
+    svg: (
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="#339933">
+        <path d="M11.998 24a1.47 1.47 0 0 1-.732-.196l-2.328-1.377c-.348-.194-.178-.263-.063-.303.464-.161.557-.198 1.052-.479a.177.177 0 0 1 .171.014l1.788 1.062a.228.228 0 0 0 .215 0l6.973-4.026a.22.22 0 0 0 .108-.19V7.497a.222.222 0 0 0-.109-.192l-6.971-4.024a.218.218 0 0 0-.214 0L5.936 7.306a.222.222 0 0 0-.109.19v8.052c0 .078.042.15.109.190l1.91 1.104c1.037.519 1.671-.092 1.671-.707V8.258a.2.2 0 0 1 .2-.2h.874a.2.2 0 0 1 .2.2v8.879c0 1.384-.755 2.178-2.068 2.178-.403 0-.72 0-1.606-.436l-1.83-1.054a1.471 1.471 0 0 1-.733-1.274V7.497c0-.526.28-1.015.733-1.274l6.972-4.027a1.527 1.527 0 0 1 1.466 0l6.973 4.027c.453.259.733.748.733 1.274v8.052c0 .526-.28 1.015-.733 1.274l-6.973 4.026a1.47 1.47 0 0 1-.732.196z"/>
+      </svg>
+    ),
+  },
+  {
+    label: "TypeScript",
+    angle: 130,
+    floatY: -10,
+    duration: 3.6,
+    size: 46,
+    bg: "bg-[#0d1117]/90",
+    border: "border-[#3178C6]/40",
+    svg: (
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="#3178C6">
+        <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/>
+      </svg>
+    ),
+  },
+  {
     label: "MongoDB",
-    className: "right-4 bottom-12 sm:right-6 sm:bottom-14 lg:right-6 lg:bottom-14",
+    angle: 50,
     floatY: -12,
     duration: 3.4,
-    size: 44,
-    bg: "bg-[#0a1a0a]/80",
-    border: "border-[#47A248]/30",
+    size: 46,
+    bg: "bg-[#0a1a0a]/90",
+    border: "border-[#47A248]/40",
     svg: (
       <svg viewBox="0 0 24 24" width="22" height="22" fill="#47A248">
         <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.154-1.86-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"/>
+      </svg>
+    ),
+  },
+  {
+    label: "GitHub",
+    angle: 90,
+    floatY: -10,
+    duration: 3.8,
+    size: 46,
+    bg: "bg-[#0d1117]/90",
+    border: "border-white/25",
+    svg: (
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="#ffffff">
+        <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.071 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.504.337c1.909-1.296 2.747-1.026 2.747-1.026.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/>
       </svg>
     ),
   },
@@ -333,58 +348,68 @@ const HeroSection = () => {
             transition={{ delay: 0.4, duration: 0.9, ease: "easeOut" }}
             className="order-1 relative flex justify-center lg:order-2 lg:justify-end"
           >
-            <div className="relative mx-auto h-[27rem] w-[24rem] sm:h-[31rem] sm:w-[28rem] lg:mx-0 lg:h-[34rem] lg:w-[32rem] xl:h-[36rem] xl:w-[35rem]">
-              <div className="absolute inset-[12%_8%_10%] rounded-[3rem] hero-gradient opacity-10 blur-3xl" />
+            {/*
+              Single square div = the circle's coordinate space.
+              Image fills it; icons use angle math to sit on the circumference.
+              Outer padding (p-10) gives room for icons that extend beyond the edge.
+            */}
+            <div className="relative p-10 sm:p-12 lg:p-14">
+              {/* Circle: image + glow ring */}
+              <div className="relative h-[19rem] w-[19rem] sm:h-[22rem] sm:w-[22rem] lg:h-[25rem] lg:w-[25rem] xl:h-[27rem] xl:w-[27rem]">
+                {/* Glow rings */}
+                <div className="absolute -inset-3 rounded-full hero-gradient opacity-40 blur-[10px] pointer-events-none" />
+                <div className="absolute -inset-1 rounded-full hero-gradient opacity-25 blur-[3px] pointer-events-none" />
 
-              <div className="absolute inset-0 pointer-events-none">
-                {floatingIcons.map((icon, i) => (
-                  <motion.div
-                    key={icon.label}
-                    className={`absolute ${icon.className}`}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{
-                      opacity: 1,
-                      scale: 1,
-                      y: [0, icon.floatY ?? -10, 0],
-                    }}
-                    transition={{
-                      opacity: { delay: 0.8 + i * 0.12, duration: 0.5 },
-                      scale: { delay: 0.8 + i * 0.12, duration: 0.5, type: "spring", stiffness: 200 },
-                      y: {
-                        delay: 0.8 + i * 0.12,
-                        duration: icon.duration ?? 3,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      },
-                    }}
-                  >
-                    <div
-                      className={`flex items-center justify-center rounded-2xl border shadow-lg backdrop-blur-md ${icon.bg} ${icon.border}`}
-                      style={{ width: icon.size, height: icon.size }}
-                      title={icon.label}
-                    >
-                      {icon.svg}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative">
-                  <div className="absolute -inset-2 rounded-full hero-gradient opacity-50 blur-[6px]" />
-                  <div className="absolute -inset-1 rounded-full hero-gradient opacity-30 blur-[2px]" />
-                  <div
-                    className={`relative h-72 w-72 overflow-hidden rounded-full sm:h-80 sm:w-80 lg:h-[22rem] lg:w-[22rem] xl:h-96 xl:w-96 ${imageFrameClass}`}
-                  >
-                    <img
-                      src={profilePhoto}
-                      alt="Sathish Kumar Technical Lead Engineer"
-                      className="h-full w-full object-cover object-top"
-                      width={512}
-                      height={640}
-                    />
-                  </div>
+                {/* Photo */}
+                <div className={`absolute inset-0 overflow-hidden rounded-full ${imageFrameClass}`}>
+                  <img
+                    src={profilePhoto}
+                    alt="Sathish Kumar Technical Lead Engineer"
+                    className="h-full w-full object-cover object-[center_8%]"
+                    width={512}
+                    height={640}
+                  />
                 </div>
+
+                {/* Icons pinned to circumference via angle math */}
+                {floatingIcons.map((icon, i) => {
+                  const rad = (icon.angle * Math.PI) / 180;
+                  return (
+                    <motion.div
+                      key={icon.label}
+                      className="absolute z-10 pointer-events-none"
+                      style={{
+                        left: `${50 + Math.cos(rad) * 50}%`,
+                        top: `${50 + Math.sin(rad) * 50}%`,
+                        translate: "-50% -50%",
+                      }}
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{
+                        opacity: 1,
+                        scale: 1,
+                        y: [0, icon.floatY ?? -10, 0],
+                      }}
+                      transition={{
+                        opacity: { delay: 0.8 + i * 0.12, duration: 0.5 },
+                        scale: { delay: 0.8 + i * 0.12, duration: 0.5, type: "spring", stiffness: 200 },
+                        y: {
+                          delay: 0.8 + i * 0.12,
+                          duration: icon.duration ?? 3,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        },
+                      }}
+                    >
+                      <div
+                        className={`flex items-center justify-center rounded-2xl border shadow-xl backdrop-blur-md ${icon.bg} ${icon.border}`}
+                        style={{ width: icon.size, height: icon.size }}
+                        title={icon.label}
+                      >
+                        {icon.svg}
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
           </motion.div>

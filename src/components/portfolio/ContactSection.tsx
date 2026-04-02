@@ -54,7 +54,7 @@ const ContactSection = () => (
         initial={{ opacity: 0, x: 30 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        className="glass rounded-2xl p-8 space-y-6"
+        className="glass hover-card-glow rounded-2xl p-8 space-y-6"
         onSubmit={(e) => e.preventDefault()}
       >
         <div className="grid sm:grid-cols-2 gap-4">

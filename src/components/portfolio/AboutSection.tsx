@@ -54,7 +54,7 @@ const AboutSection = () => {
 
         <div className="grid grid-cols-2 gap-4">
           {stats.map(({ icon: Icon, value, label }) => (
-            <div key={label} className="stat-card glass rounded-2xl p-6 text-center magnetic-hover">
+            <div key={label} className="stat-card glass hover-card-glow rounded-2xl p-6 text-center magnetic-hover">
               <div className="w-12 h-12 rounded-xl hero-gradient flex items-center justify-center mx-auto mb-4">
                 <Icon size={24} className="text-primary-foreground" />
               </div>

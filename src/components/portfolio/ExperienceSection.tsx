@@ -176,7 +176,7 @@ const ExperienceTimelineItem = ({
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
-          <div className="rounded-2xl border border-border/60 bg-card/55 p-5 backdrop-blur-sm">
+          <div className="hover-card-glow rounded-2xl border border-border/60 bg-card/55 p-5 backdrop-blur-sm">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
               Focus
             </p>
@@ -192,7 +192,7 @@ const ExperienceTimelineItem = ({
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border/60 bg-card/55 p-5 backdrop-blur-sm">
+          <div className="hover-card-glow rounded-2xl border border-border/60 bg-card/55 p-5 backdrop-blur-sm">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
               Key Workstreams
             </p>

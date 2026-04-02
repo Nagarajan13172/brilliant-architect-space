@@ -226,6 +226,73 @@
     transform: translateY(-4px);
     box-shadow: var(--glow-primary);
   }
+
+  .hover-card-glow {
+    position: relative;
+    isolation: isolate;
+    transition:
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      background-color 0.3s ease;
+  }
+
+  .hover-card-glow::before {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: -18%;
+    height: 42%;
+    border-radius: 9999px;
+    background: radial-gradient(
+      ellipse at center,
+      hsl(var(--accent) / 0.3) 0%,
+      hsl(var(--accent) / 0.12) 32%,
+      transparent 72%
+    );
+    opacity: 0;
+    filter: blur(28px);
+    transform: translateY(12px);
+    transition: opacity 0.32s ease, transform 0.32s ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .hover-card-glow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    box-shadow:
+      inset 0 1px 0 hsl(var(--accent) / 0.42),
+      inset 0 0 0 1px hsl(var(--accent) / 0.26);
+    transition: opacity 0.32s ease;
+  }
+
+  .hover-card-glow:hover,
+  .hover-card-glow:focus-within {
+    border-color: hsl(var(--accent) / 0.34);
+    box-shadow:
+      0 24px 48px hsl(var(--accent) / 0.14),
+      0 0 0 1px hsl(var(--accent) / 0.12);
+  }
+
+  .hover-card-glow:hover::before,
+  .hover-card-glow:hover::after,
+  .hover-card-glow:focus-within::before,
+  .hover-card-glow:focus-within::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .dark .hover-card-glow:hover,
+  .dark .hover-card-glow:focus-within {
+    box-shadow:
+      0 28px 56px hsl(var(--accent) / 0.18),
+      0 0 0 1px hsl(var(--accent) / 0.16);
+  }
 }
 
 @layer utilities {
