@@ -105,110 +105,182 @@ const ExperienceTimelineItem = ({
   index: number;
   isLast: boolean;
 }) => (
-  <motion.article
-    initial={{ opacity: 0, y: 28 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-80px" }}
-    transition={{ duration: 0.55, delay: index * 0.08, ease: "easeOut" }}
-    className={`relative pl-8 md:pl-12 ${isLast ? "" : "pb-16 md:pb-20"}`}
-  >
-    <div className="absolute bottom-0 left-0 top-0 w-px bg-border/70" />
-
-    <div className="relative z-10 flex flex-col gap-3 md:flex-row md:items-center md:gap-5">
-      <span
-        className="inline-flex w-fit -translate-x-8 items-center rounded-full border-[3px] border-primary bg-background px-5 py-2 font-display text-xl font-bold text-foreground md:-translate-x-12 md:px-6 md:text-[1.75rem]"
-        style={{ boxShadow: "0 0 0 12px hsl(var(--background))" }}
-      >
-        {experience.period}
-      </span>
-
-      <div className="space-y-1 md:pt-1">
-        <p className="text-xl font-medium text-foreground/70 md:text-[2rem]">
-          {experience.company}
-        </p>
-        {experience.client ? (
-          <p className="text-sm text-muted-foreground">{experience.client}</p>
+  <>
+    <motion.article
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
+      className={`md:hidden overflow-hidden rounded-2xl border border-border/70 bg-card/70 p-4 shadow-sm backdrop-blur-sm ${isLast ? "" : "mb-5"}`}
+    >
+      <div className="mb-3 flex flex-wrap items-center gap-2">
+        <span className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+          {experience.period}
+        </span>
+        {experience.current ? (
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/25 bg-accent/10 px-2.5 py-1 text-[11px] font-semibold text-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+            Current
+          </span>
         ) : null}
       </div>
-    </div>
 
-    <div className="mt-6 border-t border-border/60 pt-8 md:pt-10">
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(260px,0.85fr)]">
-        <div className="space-y-6">
-          <div className="space-y-3">
-            <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-              <span className="inline-flex items-center gap-1.5">
-                <BriefcaseBusiness size={14} />
-                {experience.role}
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <MapPin size={14} />
-                {experience.location}
-              </span>
-              {experience.current ? (
-                <span className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-                  Current Chapter
-                </span>
-              ) : null}
-            </div>
+      <p className="text-base font-semibold text-foreground">{experience.company}</p>
+      {experience.client ? (
+        <p className="mt-1 text-xs text-muted-foreground">{experience.client}</p>
+      ) : null}
 
-            <h3 className="font-display text-3xl font-bold leading-tight text-foreground md:text-4xl">
-              {experience.role}
-            </h3>
+      <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+        <span className="inline-flex items-center gap-1.5">
+          <BriefcaseBusiness size={13} />
+          {experience.role}
+        </span>
+        <span className="inline-flex items-center gap-1.5">
+          <MapPin size={13} />
+          {experience.location}
+        </span>
+      </div>
 
-            <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground">
-              {experience.summary}
-            </p>
-          </div>
+      <h3 className="mt-4 font-display text-2xl font-bold leading-tight text-foreground">
+        {experience.role}
+      </h3>
 
-          <ul className="space-y-3">
-            {experience.highlights.map((highlight) => (
-              <li
-                key={highlight}
-                className="flex items-start gap-3 text-base leading-relaxed text-muted-foreground"
-              >
-                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" />
-                <span>{highlight}</span>
-              </li>
-            ))}
-          </ul>
+      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{experience.summary}</p>
+
+      <ul className="mt-4 space-y-2.5">
+        {experience.highlights.slice(0, 3).map((highlight) => (
+          <li
+            key={highlight}
+            className="flex items-start gap-2.5 text-sm leading-relaxed text-muted-foreground"
+          >
+            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+            <span>{highlight}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-4 border-t border-border/60 pt-4">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+          Focus
+        </p>
+        <div className="mt-2.5 flex flex-wrap gap-1.5">
+          {experience.focus.map((item) => (
+            <span
+              key={item}
+              className="rounded-full border border-border/70 bg-background/70 px-2.5 py-1 text-[10px] font-mono text-foreground/80"
+            >
+              {item}
+            </span>
+          ))}
         </div>
+      </div>
+    </motion.article>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
-          <div className="hover-card-glow rounded-2xl border border-border/60 bg-card/55 p-5 backdrop-blur-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
-              Focus
-            </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {experience.focus.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-border/70 bg-background/70 px-3 py-1.5 text-xs font-mono text-foreground/80"
-                >
-                  {item}
+    <motion.article
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.55, delay: index * 0.08, ease: "easeOut" }}
+      className={`relative hidden md:block md:pl-12 ${isLast ? "" : "md:pb-20"}`}
+    >
+      <div className="absolute bottom-0 left-0 top-0 w-px bg-border/70" />
+
+      <div className="relative z-10 flex flex-col gap-3 md:flex-row md:items-center md:gap-5">
+        <span
+          className="inline-flex w-fit -translate-x-8 items-center rounded-full border-[3px] border-primary bg-background px-5 py-2 font-display text-xl font-bold text-foreground md:-translate-x-12 md:px-6 md:text-[1.75rem]"
+          style={{ boxShadow: "0 0 0 12px hsl(var(--background))" }}
+        >
+          {experience.period}
+        </span>
+
+        <div className="space-y-1 md:pt-1">
+          <p className="text-xl font-medium text-foreground/70 md:text-[2rem]">
+            {experience.company}
+          </p>
+          {experience.client ? (
+            <p className="text-sm text-muted-foreground">{experience.client}</p>
+          ) : null}
+        </div>
+      </div>
+
+      <div className="mt-6 border-t border-border/60 pt-8 md:pt-10">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(260px,0.85fr)]">
+          <div className="space-y-6">
+            <div className="space-y-3">
+              <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+                <span className="inline-flex items-center gap-1.5">
+                  <BriefcaseBusiness size={14} />
+                  {experience.role}
                 </span>
-              ))}
-            </div>
-          </div>
+                <span className="inline-flex items-center gap-1.5">
+                  <MapPin size={14} />
+                  {experience.location}
+                </span>
+                {experience.current ? (
+                  <span className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+                    Current Chapter
+                  </span>
+                ) : null}
+              </div>
 
-          <div className="hover-card-glow rounded-2xl border border-border/60 bg-card/55 p-5 backdrop-blur-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
-              Key Workstreams
-            </p>
-            <ul className="mt-4 space-y-2.5">
-              {experience.workstreams.map((item) => (
-                <li key={item} className="flex items-start gap-2.5 text-sm text-foreground/85">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                  <span>{item}</span>
+              <h3 className="font-display text-3xl font-bold leading-tight text-foreground md:text-4xl">
+                {experience.role}
+              </h3>
+
+              <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground">
+                {experience.summary}
+              </p>
+            </div>
+
+            <ul className="space-y-3">
+              {experience.highlights.map((highlight) => (
+                <li
+                  key={highlight}
+                  className="flex items-start gap-3 text-base leading-relaxed text-muted-foreground"
+                >
+                  <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                  <span>{highlight}</span>
                 </li>
               ))}
             </ul>
           </div>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
+            <div className="hover-card-glow rounded-2xl border border-border/60 bg-card/55 p-5 backdrop-blur-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+                Focus
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {experience.focus.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-border/70 bg-background/70 px-3 py-1.5 text-xs font-mono text-foreground/80"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="hover-card-glow rounded-2xl border border-border/60 bg-card/55 p-5 backdrop-blur-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+                Key Workstreams
+              </p>
+              <ul className="mt-4 space-y-2.5">
+                {experience.workstreams.map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-foreground/85">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </motion.article>
+    </motion.article>
+  </>
 );
 
 const ExperienceSection = () => (
