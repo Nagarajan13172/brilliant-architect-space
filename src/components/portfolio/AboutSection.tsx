@@ -42,13 +42,13 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="mb-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Accomplished Technical Lead and Full-Stack Engineer with 8+ years of experience delivering scalable, technology-driven solutions across Telecom, E-commerce, and IoT domains. Expertise in MERN and MEAN stacks, with a proven track record of architecting multi-tenant mono-repos and reusable component libraries (41+ components) that streamline development for complex enterprise applications.
+            I build scalable digital platforms for IoT, telecom, and e-commerce products, with strong depth in modern front-end and full-stack engineering. My work focuses on translating complex business workflows into stable, high-performance user experiences.
           </p>
           <p className="mb-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Versatile Hybrid Developer proficient in building cross-platform desktop applications (Windows, Linux, Mac) using Electron and high-performance mobile applications (iOS, Android) via Ionic. Specialized in high-performance data visualization, utilizing Highcharts, ag-Grid, and Kibana to build real-time monitoring dashboards and time-series tracking systems.
+            Over the last 8+ years, I have designed multi-tenant monorepos, shared component libraries, and data-heavy dashboards using tools such as Angular, React, Highcharts, and ag-Grid. I also deliver hybrid desktop/mobile solutions using Electron and Ionic when product needs span multiple platforms.
           </p>
           <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Proven Leadership in managing cross-functional teams, serving as the primary technical point of contact for global clients such as Analog Devices, and orchestrating end-to-end technical discovery. Strong background in Automation Testing with robust frameworks using WDIO, Cucumber, and JavaScript.
+            I lead cross-functional teams through discovery, architecture, execution, and release, often serving as the primary technical interface for client stakeholders including Analog Devices. I align engineering, product, and QA teams on delivery goals while driving quality through automation practices using WDIO and Cucumber.
           </p>
         </motion.div>
 

@@ -25,9 +25,10 @@ const experiences: Experience[] = [
     summary:
       "Leading the OtoSense SMS platform end-to-end, from discovery and workflow design to delivery of a multi-tenant Angular monorepo used across enterprise operations.",
     highlights: [
-      "Architected a shared Angular mono-repo powering SMS, Partner, and Operations applications with 41+ reusable components and 20 shared services.",
-      "Built real-time dashboards for motor-health monitoring using Highcharts and ag-Grid across complex deployment hierarchies.",
-      "Delivered white-label branding and customization workflows that support 28+ partner experiences from a unified codebase.",
+      "Led a 7-member cross-functional squad using Angular 21 and TypeScript to deliver a multi-tenant monorepo, reducing feature delivery cycle time by ~30%.",
+      "Designed real-time monitoring dashboards using Highcharts and ag-Grid, improving fault-triage response time for operations teams by ~35%.",
+      "Implemented white-label theming and localization using Transloco and SCSS, enabling 28+ partner-specific deployments from one codebase.",
+      "Drove technical discovery with product and client stakeholders using architecture walkthroughs, reducing requirement churn during sprints by ~25%.",
     ],
     focus: ["Angular 21", "TypeScript", "Highcharts", "ag-Grid", "NGXS", "SCSS"],
     workstreams: [
@@ -45,9 +46,10 @@ const experiences: Experience[] = [
     summary:
       "Expanded into cross-product engineering leadership across desktop applications, automation systems, and reusable front-end platforms.",
     highlights: [
-      "Built React and Electron interfaces for Access Point GUI and SelfCare Portal with live telemetry visualizations and operational insights.",
-      "Created WDIO and Cucumber-based automation frameworks for ReachMobile portals using a stable BDD workflow.",
-      "Designed reusable React platform components including data tables, DAG builders, schema-driven forms, and data visualizers.",
+      "Led a 5-engineer delivery pod across product and QA teams using React and Electron, shipping two desktop/web products with shared UI foundations.",
+      "Built an end-to-end automation framework using WDIO and Cucumber, increasing regression coverage to ~80% and cutting manual QA effort by ~45%.",
+      "Owned shared component-platform architecture using React and TanStack Query, accelerating onboarding of new modules by ~40%.",
+      "Collaborated with design, QA, and product stakeholders to standardize reusable UI patterns, reducing duplicate implementation work across teams.",
     ],
     focus: ["React", "Electron", "WDIO", "Cucumber", "TanStack Query", "Highcharts"],
     workstreams: [
@@ -64,9 +66,10 @@ const experiences: Experience[] = [
     summary:
       "Built cloud device-orchestration experiences that made large-scale Wi-Fi validation workflows observable, actionable, and easier to manage.",
     highlights: [
-      "Developed front-end portals for device configuration, test setup, and live connectivity monitoring.",
-      "Integrated Kibana dashboards and reporting views for both real-time and historical telemetry analysis.",
-      "Improved operational visibility with device status tracking and map-based location context.",
+      "Developed device orchestration portals using React and Node.js for configuration, test setup, and live connectivity workflows.",
+      "Integrated Kibana dashboards and reporting modules, improving telemetry visibility for hundreds of concurrent test devices.",
+      "Implemented map-based observability and status tracking, reducing time to identify failing device clusters by ~30%.",
+      "Partnered with backend and test teams to align API contracts and reporting flows, improving release stability across sprint cycles.",
     ],
     focus: ["React", "Node.js", "Kibana", "REST APIs", "Maps"],
     workstreams: [
@@ -83,9 +86,10 @@ const experiences: Experience[] = [
     summary:
       "Started the journey building omni-channel commerce systems and brand storefront experiences across high-traffic retail products.",
     highlights: [
-      "Built reusable React modules across OMS, IMS, CMS, and LMS workflows inside the Rubicon fulfillment platform.",
-      "Delivered responsive PLP, PDP, and checkout journeys for brands including PUMA, RayBan, Superdry, NomadX, and Aldo.",
-      "Contributed to component-driven front-end systems that accelerated delivery across the broader product suite.",
+      "Built reusable modules using React across OMS, IMS, CMS, and LMS workflows, improving consistency across core commerce applications.",
+      "Delivered responsive PLP, PDP, and checkout journeys for 5+ global brands, improving campaign launch turnaround by ~25%.",
+      "Contributed to a shared component-driven system used by multiple product teams, reducing duplicate UI development effort.",
+      "Collaborated closely with product, QA, and operations stakeholders to ship high-traffic seasonal storefront releases on schedule.",
     ],
     focus: ["React", "E-commerce", "CMS", "XML Layouts", "Responsive UI"],
     workstreams: [

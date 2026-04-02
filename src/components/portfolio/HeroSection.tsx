@@ -141,6 +141,13 @@ const expertiseTags = [
   "WDIO",
 ];
 
+const targetRoles = [
+  "Technical Lead",
+  "Lead Frontend Engineer",
+  "Full-Stack Engineer",
+  "Frontend Architect",
+];
+
 const HeroSection = () => {
   const { mode } = useTheme();
   const isDarkMode = mode === "dark";
@@ -239,15 +246,30 @@ const HeroSection = () => {
               delay={0.5}
             />
 
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.64, duration: 0.5 }}
+              className="mb-5 flex flex-wrap justify-center gap-2 lg:justify-start"
+            >
+              {targetRoles.map((role) => (
+                <span
+                  key={role}
+                  className={`rounded-full px-3 py-1 text-[11px] font-semibold sm:text-xs ${pillClass}`}
+                >
+                  {role}
+                </span>
+              ))}
+            </motion.div>
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.75, duration: 0.6 }}
               className={`mx-auto mb-6 max-w-xl text-sm leading-relaxed sm:text-base md:mb-7 lg:mx-0 ${bodyTextClass}`}
             >
-              8+ years architecting enterprise-grade applications across IoT, Telecom, and
-              E-commerce. Specialist in multi-tenant monorepos, real-time data visualization,
-              and white-label systems serving global clients.
+              8+ years across IoT, telecom, and e-commerce, leading enterprise platforms with
+              multi-tenant architecture, real-time analytics, and client-ready white-label delivery.
             </motion.p>
 
             <motion.div
@@ -336,8 +358,9 @@ const HeroSection = () => {
               />
 
               <div className={`flex w-full items-center justify-center gap-2 text-[11px] sm:text-xs lg:w-auto lg:justify-start ${statusTextClass}`}>
-                <span className="font-medium text-accent">Currently building</span>
-                <span className={`font-mono ${statusValueClass}`}>OtoSense SMS</span>
+                <span className={`font-medium ${statusValueClass}`}>
+                  Currently leading OtoSense® SMS platform at Analog Devices (via Alethea).
+                </span>
               </div>
             </motion.div>
           </div>

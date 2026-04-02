@@ -5,56 +5,60 @@ const skillCategories = [
   {
     title: "Full-Stack Development",
     skills: [
-      { name: "JavaScript (ES6+)", level: 98 },
-      { name: "TypeScript", level: 96 },
-      { name: "Angular (11-21)", level: 95 },
-      { name: "ReactJS", level: 97 },
-      { name: "Node.js", level: 92 },
+      "JavaScript (ES6+)",
+      "TypeScript",
+      "Angular (11-21)",
+      "ReactJS",
+      "Node.js",
     ],
   },
   {
     title: "State & Data Management",
     skills: [
-      { name: "MongoDB (Indexing & Pipelines)", level: 94 },
-      { name: "Tanstack Query", level: 95 },
-      { name: "NGXS & RxJS", level: 92 },
-      { name: "Highcharts & ag-Grid", level: 93 },
-      { name: "Material React Tables", level: 90 },
+      "MongoDB (Indexing & Pipelines)",
+      "TanStack Query",
+      "NGXS & RxJS",
+      "Highcharts & ag-Grid",
+      "Material React Tables",
     ],
   },
   {
     title: "Hybrid & Specialized Tools",
     skills: [
-      { name: "Electron (Desktop Apps)", level: 92 },
-      { name: "Ionic (iOS/Android)", level: 88 },
-      { name: "WDIO & Cucumber Testing", level: 90 },
-      { name: "Docker & DevOps", level: 85 },
-      { name: "Multi-tenant Mono-repos", level: 93 },
+      "Electron (Desktop Apps)",
+      "Ionic (iOS/Android)",
+      "WDIO & Cucumber Testing",
+      "Docker & DevOps",
+      "Multi-tenant Monorepos",
     ],
   },
   {
     title: "Enterprise & Architecture",
     skills: [
-      { name: "White-label Branding Engines", level: 94 },
-      { name: "RBAC & Security", level: 91 },
-      { name: "Component Libraries (41+)", level: 96 },
-      { name: "Real-time Data Visualization", level: 94 },
-      { name: "Micro-Frontend Architecture", level: 92 },
+      "White-label Branding Engines",
+      "RBAC & Security",
+      "Component Libraries (41+)",
+      "Real-time Data Visualization",
+      "Micro-frontend Architecture",
     ],
   },
-];
-
-const techLogos = [
-  "Angular", "React", "TypeScript", "JavaScript", "Node.js",
-  "MongoDB", "Electron", "Ionic", "Highcharts", "ag-Grid",
-  "Docker", "WDIO", "Cucumber", "Tanstack Query", "SCSS",
+  {
+    title: "Leadership & Process",
+    skills: [
+      "Technical Discovery & Solution Design",
+      "Cross-functional Team Leadership",
+      "Client & Stakeholder Communication",
+      "Agile Delivery & Sprint Planning",
+      "Quality Engineering & Test Strategy",
+    ],
+  },
 ];
 
 const SkillsSection = () => (
   <section id="skills" className="section-padding bg-secondary/30 relative overflow-hidden">
     <SectionHeading title="Skills & Expertise" subtitle="Technologies and tools I work with daily" />
 
-    <div className="container mx-auto mb-14 grid gap-6 md:grid-cols-2 md:gap-8 md:mb-16">
+    <div className="container mx-auto grid gap-6 md:grid-cols-2 md:gap-8">
       {skillCategories.map((cat, catIdx) => (
         <motion.div
           key={cat.title}
@@ -65,45 +69,22 @@ const SkillsSection = () => (
           className="glass hover-card-glow rounded-2xl p-5 sm:p-6"
         >
           <h3 className="mb-6 font-display text-lg font-bold text-foreground sm:text-xl">{cat.title}</h3>
-          <div className="space-y-5">
+          <div className="flex flex-wrap gap-2.5">
             {cat.skills.map((skill, i) => (
-              <div key={skill.name}>
-                <div className="mb-2 flex items-center justify-between gap-3">
-                  <span className="min-w-0 text-sm font-medium text-foreground">{skill.name}</span>
-                  <span className="shrink-0 text-sm text-muted-foreground">{skill.level}%</span>
-                </div>
-                <div className="h-2 rounded-full bg-muted overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.2, delay: 0.1 * i, ease: "easeOut" }}
-                    className="h-full rounded-full hero-gradient"
-                  />
-                </div>
-              </div>
+              <motion.span
+                key={skill}
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: 0.03 * i }}
+                className="rounded-xl border border-border bg-muted/60 px-3 py-2 text-xs font-medium text-foreground sm:text-sm"
+              >
+                {skill}
+              </motion.span>
             ))}
           </div>
         </motion.div>
       ))}
-    </div>
-
-    {/* Scrolling tech ticker */}
-    <div className="overflow-hidden">
-      <motion.div
-        animate={{ x: [0, -1500] }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        className="flex gap-6 whitespace-nowrap sm:gap-8"
-      >
-        {[...techLogos, ...techLogos].map((tech, i) => (
-          <span
-            key={i}
-            className="select-none font-display text-lg font-bold text-muted-foreground/30 sm:text-2xl"
-          >
-            {tech}
-          </span>
-        ))}
-      </motion.div>
     </div>
   </section>
 );

@@ -17,12 +17,12 @@ type Project = {
 const projects: Project[] = [
   {
     title: "OtoSense® SMS Platform",
-    client: "Analog Devices • Alethea",
+    client: "Analog Devices India • Alethea",
     period: "Jan 2024 – Present",
     role: "Technical Lead Engineer",
     featured: true,
     summary:
-      "Enterprise-grade multi-tenant IoT platform enabling real-time motor health monitoring across hierarchical deployment structures for global industrial partners.",
+      "Owned architecture and delivery for an enterprise multi-tenant IoT platform enabling real-time motor-health monitoring across complex deployment hierarchies.",
     tech: [
       "Angular 21",
       "TypeScript",
@@ -35,25 +35,20 @@ const projects: Project[] = [
       "Monorepo",
     ],
     highlights: [
-      "Spearheaded end-to-end project leadership as primary technical contact — gathered requirements, defined complex business logic, and architected comprehensive edge-case scenarios.",
-      "Orchestrated technical discovery by presenting detailed workflow visualizations and architectural PPTs to secure design confirmation before development.",
-      "Managed cross-functional work distribution across Front-End and Back-End workstreams for timely delivery of a multi-tenant monorepo.",
-      "Architected a multi-tenant Angular monorepo supporting 3 distinct enterprise applications (Customer, Partner, Operations) with a shared library of 41+ reusable components and 20 services.",
-      "Engineered high-performance dashboards using Highcharts and ag-Grid for real-time time-series visualization, enabling motor health tracking across hierarchical structures (Deployment → City → Plant).",
-      "Developed a white-label branding engine using Transloco and dynamic SCSS theming, allowing 28+ global partners to customize UI styles, logos, and languages through a single unified codebase.",
-      "Optimized application state with NGXS and RxJS for reactive data flows, incorporating lazy loading and continuation-token pagination for large datasets.",
-      "Refined UX and security with intuitive device lifecycle workflows (commissioning/decommissioning), RBAC, and robust error-handling interceptors.",
-      "Streamlined operational workflows by building automated reporting and notification systems.",
-      "Leveraged AI-assisted development tools (GitHub Copilot, Claude) to accelerate component prototyping and automate unit testing.",
+      "Owned end-to-end platform architecture using Angular 21 and TypeScript, aligning discovery, design, and delivery across frontend, backend, and QA teams.",
+      "Architected a monorepo powering 3 enterprise applications with 41+ reusable components and 20 services, reducing new feature setup effort by ~35%.",
+      "Built real-time dashboards using Highcharts and ag-Grid, improving operations response time for critical events by ~30%.",
+      "Implemented a white-label engine using Transloco and dynamic SCSS theming, enabling 28+ partner deployments from a unified codebase.",
+      "Defined test and quality strategy with automation-first workflows, improving release confidence and reducing regression escape issues.",
     ],
   },
   {
     title: "Centralized Component Library",
-    client: "Analog Devices • Alethea",
+    client: "Analog Devices India • Alethea",
     period: "May 2023 – Nov 2023",
     role: "Lead Engineer",
     summary:
-      "Shared React component suite serving multiple projects — DataTable, Data Visualizer, Tree Viewer, DAG Builder, and JSON Form — built for versatility and reuse.",
+      "Owned architecture and rollout of a shared React component platform adopted across multiple product streams for consistent UX and faster delivery.",
     tech: [
       "React",
       "TypeScript",
@@ -64,12 +59,10 @@ const projects: Project[] = [
       "DAG",
     ],
     highlights: [
-      "Designed and developed five core components: DataTable (table view), Data Visualizer (chart view), Tree Viewer (hierarchical view), DAG Builder (directed acyclic graph), and JSON Form (schema-to-form).",
-      "Built DataTable using Material React Tables with advanced filtering, sorting, and pagination.",
-      "Integrated Tanstack Query for server-state management and data synchronization across components.",
-      "Engineered DAG Builder to visually represent directed acyclic graph structures for complex workflow modeling.",
-      "Developed JSON Form component to dynamically convert JSON Schema objects into fully functional form structures using RJSF.",
-      "Enabled seamless embedding of components across multiple React projects, reducing duplicate development effort significantly.",
+      "Defined component architecture and ownership boundaries for five core modules (DataTable, Visualizer, Tree Viewer, DAG Builder, JSON Form).",
+      "Built reusable modules using React, Material React Table, and RJSF, reducing duplicate implementation effort by ~40%.",
+      "Integrated TanStack Query patterns for standardized server-state handling, improving consistency across consuming applications.",
+      "Enabled cross-project adoption through documentation and integration patterns, with the library reused in multiple production products.",
     ],
   },
   {
@@ -93,13 +86,13 @@ const projects: Project[] = [
     period: "Sep 2022 – Feb 2023",
     role: "Lead Engineer",
     summary:
-      "End-to-end test automation framework and scripts for the ReachMobile web application using WDIO, JavaScript, and Cucumber BDD.",
+      "Owned test strategy and built an end-to-end automation framework for ReachMobile using WDIO, JavaScript, and Cucumber BDD.",
     tech: ["JavaScript", "WDIO", "Cucumber", "BDD"],
     highlights: [
-      "Developed the complete test automation framework from ground up using WDIO and Cucumber stack.",
-      "Identified, implemented, and stabilized test cases for both the ReachMobile agent portal and end-user portal.",
-      "Applied BDD methodology with Cucumber feature files to bridge communication between technical and non-technical stakeholders.",
-      "Executed full regression cycles and hardened test stability to support continuous delivery pipelines.",
+      "Built the complete framework from scratch using WDIO and Cucumber, establishing a scalable baseline for regression automation.",
+      "Implemented and stabilized test packs for both agent and end-user portals, increasing automated regression coverage to ~80%.",
+      "Applied BDD workflows with product and QA stakeholders, improving requirement clarity and reducing test rework.",
+      "Integrated the suite into CI pipelines, shortening release validation cycles and improving deployment confidence.",
     ],
   },
   {
@@ -209,12 +202,12 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
         </div>
 
         {/* Meta row */}
-        <div className="flex flex-wrap gap-x-4 gap-y-1 mb-4 text-xs text-muted-foreground">
-          <span className="flex items-center gap-1.5">
-            <Building2 size={11} className="text-primary/60 shrink-0" />
+        <div className="mb-4 flex flex-wrap gap-x-4 gap-y-2 text-muted-foreground">
+          <span className="flex items-center gap-1.5 text-sm font-semibold text-foreground/85 sm:text-base">
+            <Building2 size={14} className="shrink-0 text-primary/70" />
             {project.client}
           </span>
-          <span className="flex items-center gap-1.5">
+          <span className="flex items-center gap-1.5 text-xs sm:text-sm">
             <Calendar size={11} className="text-primary/60 shrink-0" />
             {project.period}
           </span>

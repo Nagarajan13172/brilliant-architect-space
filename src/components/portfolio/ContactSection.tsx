@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send, Linkedin, Github, Twitter } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Linkedin, Github } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 
 const ContactSection = () => (
@@ -17,6 +17,11 @@ const ContactSection = () => (
         <p className="mb-8 text-sm leading-relaxed text-muted-foreground sm:text-base">
           I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
           Whether you need a technical lead, architecture consultation, or just want to chat about tech — reach out!
+        </p>
+
+        <p className="mb-8 rounded-xl border border-border bg-card/50 px-4 py-3 text-sm text-muted-foreground sm:text-base">
+          <span className="font-semibold text-foreground">Open to:</span> Technical Lead, Lead Frontend Engineer,
+          Full-Stack Engineer roles — Bengaluru / Remote.
         </p>
 
         <div className="space-y-4 mb-8">
