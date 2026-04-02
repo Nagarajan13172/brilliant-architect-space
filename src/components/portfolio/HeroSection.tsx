@@ -9,14 +9,7 @@ import AnimatedText from "./AnimatedText";
 gsap.registerPlugin(ScrollTrigger);
 
 const expertiseTags = [
-  "Angular", "React", "TypeScript", "Node.js", "NGXS / RxJS",
-  "Highcharts", "Electron", "Multi-tenant",
-];
-
-const stats = [
-  { value: "9+", label: "Years Exp.", color: "from-blue-500/20 to-blue-600/10 border-blue-500/20" },
-  { value: "41+", label: "Components", color: "from-violet-500/20 to-violet-600/10 border-violet-500/20" },
-  { value: "28+", label: "Partners", color: "from-emerald-500/20 to-emerald-600/10 border-emerald-500/20" },
+  "React" , "Node", "TypeScript", "Angular", "MongoDB", "Express", "CucumberJs", "WDIO",
 ];
 
 const HeroSection = () => {
@@ -65,20 +58,6 @@ const HeroSection = () => {
 
           {/* ── LEFT: Text content ── */}
           <div className="flex flex-col">
-
-            {/* Status badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-              className="inline-flex items-center gap-2 self-start px-4 py-1.5 rounded-full border border-accent/30 bg-accent/8 text-accent text-sm font-medium mb-6"
-            >
-              <span className="relative flex w-2 h-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
-                <span className="relative inline-flex rounded-full w-2 h-2 bg-accent" />
-              </span>
-              Available for opportunities
-            </motion.div>
 
             {/* Name */}
             <motion.p
@@ -168,7 +147,7 @@ const HeroSection = () => {
             >
               {[
                 {
-                  href: "https://github.com",
+                  href: "https://github.com/gitOfKumarSathish",
                   label: "GitHub",
                   svg: (
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -177,7 +156,7 @@ const HeroSection = () => {
                   ),
                 },
                 {
-                  href: "https://linkedin.com",
+                  href: "https://www.linkedin.com/in/sathish-kumar-arputharajan",
                   label: "LinkedIn",
                   svg: (
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -242,47 +221,7 @@ const HeroSection = () => {
                 <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-card/60 to-transparent" />
               </div>
 
-              {/* ── Floating stat cards ── */}
 
-              {/* Years exp — top right */}
-              <motion.div
-                animate={{ y: [-4, 4, -4] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-                className={`absolute -right-5 top-6 glass rounded-2xl px-4 py-3 border bg-gradient-to-br ${stats[0].color} backdrop-blur-xl min-w-[90px] text-center shadow-lg`}
-              >
-                <div className="font-display text-xl font-bold text-foreground">{stats[0].value}</div>
-                <div className="text-xs text-muted-foreground mt-0.5">{stats[0].label}</div>
-              </motion.div>
-
-              {/* Components — bottom right */}
-              <motion.div
-                animate={{ y: [4, -4, 4] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-                className={`absolute -right-6 bottom-16 glass rounded-2xl px-4 py-3 border bg-gradient-to-br ${stats[1].color} backdrop-blur-xl min-w-[100px] text-center shadow-lg`}
-              >
-                <div className="font-display text-xl font-bold text-foreground">{stats[1].value}</div>
-                <div className="text-xs text-muted-foreground mt-0.5">{stats[1].label}</div>
-              </motion.div>
-
-              {/* Partners — left side */}
-              <motion.div
-                animate={{ y: [-3, 5, -3] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-                className={`absolute -left-6 bottom-24 glass rounded-2xl px-4 py-3 border bg-gradient-to-br ${stats[2].color} backdrop-blur-xl min-w-[95px] text-center shadow-lg`}
-              >
-                <div className="font-display text-xl font-bold text-foreground">{stats[2].value}</div>
-                <div className="text-xs text-muted-foreground mt-0.5">{stats[2].label}</div>
-              </motion.div>
-
-              {/* Client badge — top left */}
-              <motion.div
-                animate={{ y: [3, -3, 3] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                className="absolute -left-5 top-8 glass rounded-xl px-3 py-2 border border-border/60 backdrop-blur-xl shadow-md flex items-center gap-2"
-              >
-                <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                <span className="text-xs font-semibold text-foreground whitespace-nowrap">Analog Devices</span>
-              </motion.div>
             </div>
           </motion.div>
         </div>
