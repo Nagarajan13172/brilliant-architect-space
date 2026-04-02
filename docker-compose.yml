@@ -1,0 +1,24 @@
+services:
+  sathish-portfolio:
+    image: ghcr.io/nagarajan13172/sathish-portfolio:latest
+    container_name: sathish-portfolio
+    labels:
+      - traefik.enable=true
+      - traefik.domain=youngstorage.in
+      - traefik.http.routers.sathish-portfolio.rule=Host(`sathish.cloud`)
+      - traefik.http.routers.sathish-portfolio.entrypoints=websecure
+      - traefik.http.routers.sathish-portfolio.tls=true
+      - traefik.http.routers.sathish-portfolio.tls.certresolver=myresolver
+      - traefik.http.services.sathish-portfolio.loadbalancer.server.port=80
+    networks:
+      - default
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+
+networks:
+  default:
+    name: traefik
+    external: true
