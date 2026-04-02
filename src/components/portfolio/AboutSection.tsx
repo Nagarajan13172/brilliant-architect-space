@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
   { icon: Code2, value: "41+", label: "Reusable Components" },
-  { icon: Users, value: "28+", label: "Global Partners" },
+  { icon: Users, value: "25+", label: "Projects Delivered" },
   { icon: Rocket, value: "8+", label: "Years Experience" },
   { icon: Award, value: "Multi-Tenant", label: "Architecture" },
 ];

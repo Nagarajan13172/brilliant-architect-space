@@ -162,7 +162,7 @@ const roleOrder: Record<string, number> = {
 const statItems = [
   { label: "Roles", value: `${experiences.length}`, icon: "◈" },
   { label: "Companies", value: "2", icon: "◈" },
-  { label: "Total Tenure", value: "7+ yrs", icon: "◈" },
+  { label: "Total Tenure", value: "8+ yrs", icon: "◈" },
   { label: "Projects", value: `${experiences.reduce((a, e) => a + e.projects.length, 0)}`, icon: "◈" },
 ];
 

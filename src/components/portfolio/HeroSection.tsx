@@ -10,6 +10,106 @@ import HyperspaceBackground from "./HyperspaceBackground";
 
 gsap.registerPlugin(ScrollTrigger);
 
+type FloatingIcon = {
+  label: string;
+  className: string;
+  floatY?: number;
+  duration?: number;
+  size: number;
+  bg: string;
+  border: string;
+  svg: React.ReactNode;
+};
+
+const floatingIcons: FloatingIcon[] = [
+  {
+    label: "React",
+    className: "left-2 top-10 sm:left-4 sm:top-12 lg:left-4 lg:top-14",
+    floatY: -12,
+    duration: 3.2,
+    size: 52,
+    bg: "bg-[#20232a]/80",
+    border: "border-[#61DAFB]/30",
+    svg: (
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="#61DAFB">
+        <path d="M12 10.11A1.87 1.87 0 1 1 10.13 12 1.87 1.87 0 0 1 12 10.11zm-4.91 5.46c-.34-.1-.64-.2-.9-.31a9.13 9.13 0 0 1-1.7-.9 3.54 3.54 0 0 1 0-4.72 9.13 9.13 0 0 1 1.7-.9c.26-.11.56-.21.9-.31a24.18 24.18 0 0 1-.33-1.14 13.55 13.55 0 0 1-.29-2.6C6.47 2.89 8.5 2 12 2s5.53.89 5.53 2.69a13.55 13.55 0 0 1-.29 2.6c-.1.39-.21.77-.33 1.14.34.1.64.2.9.31a9.13 9.13 0 0 1 1.7.9 3.54 3.54 0 0 1 0 4.72 9.13 9.13 0 0 1-1.7.9c-.26.11-.56.21-.9.31.12.37.23.75.33 1.14a13.55 13.55 0 0 1 .29 2.6C17.53 21.11 15.5 22 12 22s-5.53-.89-5.53-2.69a13.55 13.55 0 0 1 .29-2.6c.1-.39.21-.77.33-1.14zm1.38-.38c-.97.27-1.8.59-2.4.95-.79.47-1.14.96-1.14 1.46 0 1.08 1.56 1.9 4.53 1.9s4.53-.82 4.53-1.9c0-.5-.35-.99-1.14-1.46-.6-.36-1.43-.68-2.4-.95a24.26 24.26 0 0 1-1 2.9 24.26 24.26 0 0 1-1-2.9zm2-10.38a24.26 24.26 0 0 1 1-2.9 24.26 24.26 0 0 1 1 2.9c.97-.27 1.8-.59 2.4-.95.79-.47 1.14-.96 1.14-1.46C14.14 3.82 13.07 3 12 3s-2.14.82-2.14 1.9c0 .5.35.99 1.14 1.46.6.36 1.43.68 2.4.95zM8.47 12a24.26 24.26 0 0 1-2.9-1c.27.97.59 1.8.95 2.4.47.79.96 1.14 1.46 1.14h.03c-.27-.97-.46-1.97-.54-3a24.26 24.26 0 0 1-1 2.9zm7.06 0c-.08 1.03-.27 2.03-.54 3h.03c.5 0 .99-.35 1.46-1.14.36-.6.68-1.43.95-2.4a24.26 24.26 0 0 1-2.9 1zm-3.53 4.08a24.26 24.26 0 0 1-1-2.9 24.26 24.26 0 0 1-1 2.9c.33.07.66.11 1 .11s.67-.04 1-.11zm0-8.16c.34.07.67.11 1 .11s.66-.04 1-.11a24.26 24.26 0 0 1-1-2.9 24.26 24.26 0 0 1-1 2.9z"/>
+      </svg>
+    ),
+  },
+  {
+    label: "Angular",
+    className: "right-2 top-10 sm:right-4 sm:top-12 lg:right-4 lg:top-14",
+    floatY: -14,
+    duration: 2.8,
+    size: 52,
+    bg: "bg-[#1a0a0a]/80",
+    border: "border-[#DD0031]/30",
+    svg: (
+      <svg viewBox="0 0 24 24" width="26" height="26">
+        <path fill="#DD0031" d="M12 2L2 6.5l1.5 13L12 22l8.5-2.5L22 6.5z"/>
+        <path fill="#C3002F" d="M12 2v20l8.5-2.5L22 6.5z"/>
+        <path fill="#fff" d="M12 5.5L7 16h1.9l1-2.5h4.2l1 2.5H17zm0 3.2l1.6 3.8H10.4z"/>
+      </svg>
+    ),
+  },
+  {
+    label: "TypeScript",
+    className: "left-2 bottom-16 sm:left-5 sm:bottom-20 lg:left-4 lg:bottom-20",
+    floatY: -10,
+    duration: 3.6,
+    size: 48,
+    bg: "bg-[#0d1117]/80",
+    border: "border-[#3178C6]/30",
+    svg: (
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="#3178C6">
+        <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/>
+      </svg>
+    ),
+  },
+  {
+    label: "Node.js",
+    className: "right-1 top-1/2 -translate-y-1/2 sm:right-2 lg:right-1",
+    floatY: -8,
+    duration: 4,
+    size: 48,
+    bg: "bg-[#0a1a0a]/80",
+    border: "border-[#339933]/30",
+    svg: (
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="#339933">
+        <path d="M11.998 24a1.47 1.47 0 0 1-.732-.196l-2.328-1.377c-.348-.194-.178-.263-.063-.303.464-.161.557-.198 1.052-.479a.177.177 0 0 1 .171.014l1.788 1.062a.228.228 0 0 0 .215 0l6.973-4.026a.22.22 0 0 0 .108-.19V7.497a.222.222 0 0 0-.109-.192l-6.971-4.024a.218.218 0 0 0-.214 0L5.936 7.306a.222.222 0 0 0-.109.19v8.052c0 .078.042.15.109.190l1.91 1.104c1.037.519 1.671-.092 1.671-.707V8.258a.2.2 0 0 1 .2-.2h.874a.2.2 0 0 1 .2.2v8.879c0 1.384-.755 2.178-2.068 2.178-.403 0-.72 0-1.606-.436l-1.83-1.054a1.471 1.471 0 0 1-.733-1.274V7.497c0-.526.28-1.015.733-1.274l6.972-4.027a1.527 1.527 0 0 1 1.466 0l6.973 4.027c.453.259.733.748.733 1.274v8.052c0 .526-.28 1.015-.733 1.274l-6.973 4.026a1.47 1.47 0 0 1-.732.196z"/>
+      </svg>
+    ),
+  },
+  {
+    label: "Web",
+    className: "left-0 top-1/2 -translate-y-1/2 sm:left-2 lg:left-1",
+    floatY: -16,
+    duration: 3,
+    size: 44,
+    bg: "bg-[#1a1200]/80",
+    border: "border-[#F7DF1E]/30",
+    svg: (
+      <svg viewBox="0 0 24 24" width="22" height="22">
+        <path fill="#F7DF1E" d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+      </svg>
+    ),
+  },
+  {
+    label: "MongoDB",
+    className: "right-2 bottom-8 sm:right-4 sm:bottom-10 lg:right-1 lg:bottom-8",
+    floatY: -12,
+    duration: 3.4,
+    size: 44,
+    bg: "bg-[#0a1a0a]/80",
+    border: "border-[#47A248]/30",
+    svg: (
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="#47A248">
+        <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.154-1.86-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"/>
+      </svg>
+    ),
+  },
+];
+
 const expertiseTags = [
   "React",
   "Node",
@@ -94,8 +194,8 @@ const HeroSection = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-6">
-        <div className="grid min-h-[85vh] items-center gap-16 py-20 lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_460px]">
-          <div className="flex flex-col">
+        <div className="grid min-h-[85vh] items-center gap-10 py-20 lg:grid-cols-[1fr_420px] lg:gap-16 xl:grid-cols-[1fr_460px]">
+          <div className="order-2 flex flex-col items-center text-center lg:order-1 lg:items-start lg:text-left">
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -124,7 +224,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.75, duration: 0.6 }}
-              className={`mb-7 max-w-xl text-base leading-relaxed ${bodyTextClass}`}
+              className={`mx-auto mb-7 max-w-xl text-base leading-relaxed lg:mx-0 ${bodyTextClass}`}
             >
               8+ years architecting enterprise-grade applications across IoT, Telecom, and
               E-commerce. Specialist in multi-tenant monorepos, real-time data visualization,
@@ -135,7 +235,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.5 }}
-              className="mb-8 flex flex-wrap gap-2"
+              className="mb-8 flex flex-wrap justify-center gap-2 lg:justify-start"
             >
               {expertiseTags.map((tag) => (
                 <span
@@ -151,7 +251,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.05, duration: 0.5 }}
-              className="mb-8 flex flex-wrap items-center gap-3"
+              className="mb-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start"
             >
               <a
                 href="#contact"
@@ -173,7 +273,7 @@ const HeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2 }}
-              className="flex items-center gap-4"
+              className="flex w-full flex-wrap items-center justify-center gap-4 lg:justify-start"
             >
               {[
                 {
@@ -212,9 +312,11 @@ const HeroSection = () => {
                 </motion.a>
               ))}
 
-              <span className={`mx-1 h-5 w-px ${isDarkMode ? "bg-white/[0.14]" : "bg-border"}`} />
+              <span
+                className={`hidden h-5 w-px sm:block ${isDarkMode ? "bg-white/[0.14]" : "bg-border"}`}
+              />
 
-              <div className={`flex items-center gap-2 text-xs ${statusTextClass}`}>
+              <div className={`flex w-full items-center justify-center gap-2 text-xs lg:w-auto lg:justify-start ${statusTextClass}`}>
                 <span className="font-medium text-accent">Currently building</span>
                 <span className={`font-mono ${statusValueClass}`}>OtoSense SMS</span>
               </div>
@@ -225,23 +327,60 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.88, x: 30 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.9, ease: "easeOut" }}
-            className="relative flex justify-center lg:justify-end"
+            className="order-1 relative flex justify-center lg:order-2 lg:justify-end"
           >
-            <div className="absolute inset-0 scale-110 rounded-full hero-gradient opacity-10 blur-3xl" />
+            <div className="relative mx-auto h-[27rem] w-[24rem] sm:h-[31rem] sm:w-[28rem] lg:mx-0 lg:h-[34rem] lg:w-[32rem] xl:h-[36rem] xl:w-[35rem]">
+              <div className="absolute inset-[12%_8%_10%] rounded-[3rem] hero-gradient opacity-10 blur-3xl" />
 
-            <div className="relative">
-              <div className="absolute -inset-1 rotate-1 rounded-[2.5rem] hero-gradient opacity-60 blur-[2px]" />
-              <div
-                className={`relative h-80 w-72 overflow-hidden rounded-[2.25rem] md:h-[360px] md:w-80 xl:h-[400px] xl:w-[340px] ${imageFrameClass}`}
-              >
-                <img
-                  src={profilePhoto}
-                  alt="Sathish Kumar Technical Lead Engineer"
-                  className="h-full w-full object-cover object-top"
-                  width={512}
-                  height={640}
-                />
-                <div className={`absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t ${imageOverlayClass} to-transparent`} />
+              <div className="absolute inset-0 pointer-events-none">
+                {floatingIcons.map((icon, i) => (
+                  <motion.div
+                    key={icon.label}
+                    className={`absolute ${icon.className}`}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{
+                      opacity: 1,
+                      scale: 1,
+                      y: [0, icon.floatY ?? -10, 0],
+                    }}
+                    transition={{
+                      opacity: { delay: 0.8 + i * 0.12, duration: 0.5 },
+                      scale: { delay: 0.8 + i * 0.12, duration: 0.5, type: "spring", stiffness: 200 },
+                      y: {
+                        delay: 0.8 + i * 0.12,
+                        duration: icon.duration ?? 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      },
+                    }}
+                  >
+                    <div
+                      className={`flex items-center justify-center rounded-2xl border shadow-lg backdrop-blur-md ${icon.bg} ${icon.border}`}
+                      style={{ width: icon.size, height: icon.size }}
+                      title={icon.label}
+                    >
+                      {icon.svg}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="absolute inset-x-10 top-8 bottom-6 flex items-center justify-center sm:inset-x-12 sm:top-10 sm:bottom-8 lg:inset-x-12 lg:top-10 lg:bottom-8 xl:inset-x-14">
+                <div className="relative">
+                  <div className="absolute -inset-1 rotate-1 rounded-[2.5rem] hero-gradient opacity-60 blur-[2px]" />
+                  <div
+                    className={`relative h-80 w-72 overflow-hidden rounded-[2.25rem] md:h-[360px] md:w-80 xl:h-[400px] xl:w-[340px] ${imageFrameClass}`}
+                  >
+                    <img
+                      src={profilePhoto}
+                      alt="Sathish Kumar Technical Lead Engineer"
+                      className="h-full w-full object-cover object-top"
+                      width={512}
+                      height={640}
+                    />
+                    <div className={`absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t ${imageOverlayClass} to-transparent`} />
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
